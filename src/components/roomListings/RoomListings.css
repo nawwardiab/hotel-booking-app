@@ -1,0 +1,53 @@
+.room-listings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hotel-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 20px 0;
+  width: 80%;
+  background-color: #fff;
+}
+
+.hotel-photos,
+.room-photos {
+  display: flex;
+  overflow-x: auto;
+}
+
+.hotel-photos img,
+.room-photos img {
+  width: 200px;
+  height: 150px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.rooms {
+  margin-top: 20px;
+}
+
+.room-card {
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.room-card button {
+  margin-top: 10px;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .hotel-card {
+    width: 90%;
+  }
+
+  .hotel-photos img,
+  .room-photos img {
+    width: 150px;
+    height: 100px;
+  }
+}
