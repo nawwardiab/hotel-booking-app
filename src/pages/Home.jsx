@@ -1,7 +1,12 @@
+import FilterOptions from "../components/filterOptions/FilterOptions";
+
 
 const Home = () => {
   return (
-    <div>Home</div>
+    < div >
+      <h1>Home</h1>
+      <FilterOptions />
+    </div >
   )
 }
 
