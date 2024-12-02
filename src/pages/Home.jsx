@@ -1,8 +1,13 @@
+import RoomListings from "../components/roomListings/RoomListings";
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <div>
+      <h1>Home</h1>
 
-export default Home
+      <RoomListings />
+    </div>
+  );
+};
+
+export default Home;
