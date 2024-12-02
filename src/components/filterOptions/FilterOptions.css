@@ -1,0 +1,35 @@
+.search-filter {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .slider {
+    margin: 10px 0;
+  }
+  
+  .results .hotel {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .guest-selection {
+    margin: 15px 0;
+  }
+  
+  .guest-inputs {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .guest-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .guest-input input {
+    width: 60px;
+    padding: 5px;
+  }
+  
