@@ -1,8 +1,10 @@
 // src/components/RoomCard.jsx
 // import "./RoomCard.css"
+import { Link } from "react-router-dom";
 
 const RoomCard = ({ room }) => {
-  const { type, pricePerNight, amenities, photos, hotelName } = room;
+  const { type, pricePerNight, amenities, photos, hotelName, roomUniqueId } =
+    room;
 
   // const handleBookNow = () =>
   //   navigate(`/hotels/${hotelId}/rooms/${room.type}/booking`);
@@ -16,22 +18,26 @@ const RoomCard = ({ room }) => {
         alt={`Image of ${type}`}
       />
 
-      {/* Room Details */}
+      {/* Room details */}
       <div className="room-card-info">
         <h3 className="room-card-title">
           {type} - {hotelName}
         </h3>
-        <p className="room-card-price">Price per Night: ${pricePerNight}</p>
-
+        <p className="room-card-price">${pricePerNight} per night</p>
         <ul className="room-card-features">
-          {amenities.map((feature, index) => (
+          {/* List features of the room */}
+          {amenities.slice(0, 3).map((feature, index) => (
             <li key={index}>{feature}</li>
           ))}
+          {amenities.length > 3 && <li>+ more...</li>}
         </ul>
+        <Link to={`/room/${roomUniqueId}`} className="room-card-book-button">
+          View Details
+        </Link>
+        <Link to={`/booking/${roomUniqueId}`} className="room-card-book-button">
+          Book Now
+        </Link>
       </div>
-      <button className="room-card-book-button">Book Now</button>
-
-      {/* <button onClick={handleBookNow}>Book {room.type} Now</button> */}
     </div>
   );
 };

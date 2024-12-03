@@ -1,7 +1,7 @@
 // RoomDetailPage.jsx
 import React from "react";
 import "./RoomDetailPage.css";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import hotels from "../../data/hotels-details.json";
 
 /**
@@ -11,19 +11,17 @@ import hotels from "../../data/hotels-details.json";
  */
 const RoomDetailPage = () => {
   const { roomId } = useParams();
+  const navigate = useNavigate();
 
-  // Flatten all rooms and create a unique room identifier
-  const allRooms = hotels.flatMap((hotel) =>
-    hotel.rooms.map((room) => ({
+  const allRooms = hotels.flatMap((hotel, hotelIndex) =>
+    hotel.rooms.map((room, roomIndex) => ({
       ...room,
       hotelName: hotel.name,
       hotelId: hotel.id,
-      roomId: `${hotel.id}-${room.type}`, // Create unique room ID
+      roomUniqueId: `${hotel.id}-${roomIndex}`,
     }))
   );
-
-  // Find room by unique identifier
-  const room = allRooms.find((room) => room.roomId === roomId);
+  const room = allRooms.find((room) => room.roomUniqueId === roomId);
 
   // Ensure room exists before rendering details
   if (!room) {
@@ -61,8 +59,15 @@ const RoomDetailPage = () => {
       {/* Booking widget */}
       <div className="booking-widget">
         <h3>Book this room</h3>
-        <button className="select-btn">Select Dates</button>
+        <Link to={`/booking/${roomId}`} className="book-now-btn">
+          Book Now
+        </Link>
       </div>
+
+      {/* Back Button */}
+      <button onClick={() => navigate(-1)} className="back-btn">
+        Go Back
+      </button>
 
       {/* Related rooms section */}
       <section className="related-rooms">
@@ -74,8 +79,8 @@ const RoomDetailPage = () => {
                 relatedRoom.hotelId === room.hotelId &&
                 relatedRoom.type !== type
             )
-            .map((relatedRoom, index) => (
-              <div key={index} className="related-room-card">
+            .map((relatedRoom) => (
+              <div key={relatedRoom.roomUniqueId} className="related-room-card">
                 <img
                   src={relatedRoom.photos[0]}
                   alt={`Image of ${relatedRoom.type}`}
