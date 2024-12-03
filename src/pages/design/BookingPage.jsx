@@ -1,7 +1,12 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import "./BookingPage.css";
+import BookingForm from "../../components/bookingForm/BookingForm";
 
 const BookingPage = () => {
+  const location = useLocation();
+  const { hotelId, selectedRoomType } = location.state || {};
+
   return (
     <div className="booking-page">
       {/* Navigation Bar */}
@@ -25,62 +30,11 @@ const BookingPage = () => {
         <h1>Book a Trip to Mallorca, Spain</h1>
       </header>
 
-      {/* Main Content */}
-      <div className="main-content">
-        {/* Left Section: Forms */}
-        <div className="form-section">
-          <div className="form-card">
-            <h2>Guest Details</h2>
-            <div className="form-group">
-              <label>Primary</label>
-              <input type="text" placeholder="Enter Full Name" />
-              <input type="date" placeholder="Select Birthdate" />
-            </div>
-            <div className="form-group">
-              <label>Additional</label>
-              <input type="text" placeholder="Enter Full Name" />
-              <input type="date" placeholder="Select Birthdate" />
-            </div>
-          </div>
-          <div className="form-card">
-            <h2>Billing Details</h2>
-            <input type="text" placeholder="Enter Street Address" />
-            <input type="text" placeholder="Enter Post Code" />
-            <input type="text" placeholder="Enter City" />
-          </div>
-          <div className="form-card">
-            <h2>Contact Information</h2>
-            <input type="email" placeholder="Enter Email Address" />
-            <div className="phone-input-group">
-              <input type="text" placeholder="Enter Prefix" />
-              <input type="text" placeholder="Enter Phone Number" />
-            </div>
-          </div>
-        </div>
-
-        {/* Right Section: Booking Summary */}
-        <div className="summary-section">
-          <h2>Location:</h2>
-          <p>Torre de Paris, Mallorca</p>
-          <h2>Accommodation:</h2>
-          <p>Grand Beach Hotel</p>
-          <h2>Rating:</h2>
-          <p>4</p>
-          <h2>Room Type:</h2>
-          <p>Standard Double Room</p>
-          <h2>Transfer Type:</h2>
-          <p>Flight Details</p>
-          <h2>Check-In Date:</h2>
-          <p>10/08 - 17/08/2023</p>
-          <div className="cost-breakdown">
-            <p>Additional Guest Fee: €500</p>
-            <p>Travel Fee: €100</p>
-            <p>Service Fee: €200</p>
-            <h3>TOTAL COST: €1420</h3>
-          </div>
-          <button className="confirm-btn">Confirm Booking</button>
-        </div>
-      </div>
+      {/* Booking Form with selected hotel ID */}
+      <BookingForm 
+        selectedHotelId={hotelId} 
+        selectedRoomType={selectedRoomType}
+      />
 
       {/* Footer */}
       <footer className="footer">
