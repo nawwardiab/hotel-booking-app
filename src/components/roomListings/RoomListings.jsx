@@ -1,16 +1,21 @@
 // src/components/RoomListings.jsx
-import hotelsData from "../../data/hotels-details.json";
-import HotelCard from "./HotelCard";
+import hotels from "../../data/hotels-details.json";
+import RoomCard from "./RoomCard";
+import "./RoomCard";
 
 const RoomListings = () => {
-  if (!hotelsData || hotelsData.length === 0) {
-    return <p>No hotels available at the moment. Please try again later.</p>;
-  }
+  const allRooms = hotels.flatMap((hotel) =>
+    hotel.rooms.map((room) => ({
+      ...room,
+      hotelName: hotel.name,
+      hotelId: hotel.id,
+    }))
+  );
 
   return (
     <div className="room-listings">
-      {hotelsData.map((hotel) => (
-        <HotelCard key={hotel.id} hotel={hotel} />
+      {allRooms.map((room, index) => (
+        <RoomCard key={index} room={room} />
       ))}
     </div>
   );

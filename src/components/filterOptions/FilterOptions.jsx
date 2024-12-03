@@ -1,189 +1,121 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
-import Slider from "react-slider";
 import hotelsData from "../../data/hotels-details.json";
-import "./FilterOptions.css"
+import "./FilterOptions.css";
 
-
-function FilterOptions() {
-    const [filteredHotels, setFilteredHotels] = useState(hotelsData);
+const FilterOptions = ({ setFilteredHotels }) => {
+    const [budget, setBudget] = useState([0, 500]);
+    const [rating, setRating] = useState(0);
     const [searchParams, setSearchParams] = useState({
         location: "",
         checkIn: "",
         checkOut: "",
-        guests: {
-            adults: 1,
-            children: 0
-        },
+        roomType: "",
         amenities: [],
-        budget: [0, 500],
-        rating: 0,
-        quickFilter: "",
     });
 
-    // Available options
-    const locationOptions = [...new Set(hotelsData.map((hotel) => hotel.location))].map((loc) => ({ value: loc, label: loc }));
-    const amenitiesOptions = ["Pool", "Gym", "Pets Allowed", "Free WiFi", "Breakfast Included"].map((amenity) => ({
-        value: amenity,
-        label: amenity,
-    }));
-    const quickFilters = [
-        { value: "Family Friendly", label: "Family Friendly" },
-        { value: "Romantic Getaways", label: "Romantic Getaways" },
-    ];
+    // Create options from data
+    const locationOptions = [...new Set(hotelsData.map((hotel) => hotel.location))]
+        .map((loc) => ({ value: loc, label: loc }));
 
-    // Handle Filters
+    const roomTypeOptions = [...new Set(hotelsData.flatMap(hotel =>
+        hotel.rooms.map(room => room.type)
+    ))].map(type => ({ value: type, label: type }));
+
+    // Filter logic
     useEffect(() => {
         const results = hotelsData.filter((hotel) => {
-            const isLocationMatch = searchParams.location ? hotel.location === searchParams.location : true;
-            const isDateMatch = (searchParams.checkIn && searchParams.checkOut)
-                ? hotel.rooms.some((room) =>
+            const isLocationMatch = !searchParams.location || hotel.location === searchParams.location;
+            const isRoomTypeMatch = !searchParams.roomType ||
+                hotel.rooms.some(room => room.type === searchParams.roomType);
+            const isDateMatch = (!searchParams.checkIn || !searchParams.checkOut) ? true :
+                hotel.rooms.some(room =>
                     room.availability.includes(searchParams.checkIn) &&
                     room.availability.includes(searchParams.checkOut)
-                )
-                : true;
-            const isAmenityMatch = searchParams.amenities.length
-                ? hotel.rooms.some((room) =>
-                    searchParams.amenities.every((amenity) => room.amenities.includes(amenity))
-                )
-                : true;
+                );
+            const isAmenityMatch = searchParams.amenities.length === 0 ? true :
+                hotel.rooms.some(room =>
+                    searchParams.amenities.every(amenity =>
+                        room.amenities.includes(amenity)
+                    )
+                );
             const isBudgetMatch = hotel.rooms.some(
-                (room) => room.pricePerNight >= searchParams.budget[0] && room.pricePerNight <= searchParams.budget[1]
+                room => room.pricePerNight >= budget[0] && room.pricePerNight <= budget[1]
             );
-            const isRatingMatch = hotel.ratings >= searchParams.rating;
-            const isQuickFilterMatch = searchParams.quickFilter
-                ? hotel.tags && hotel.tags.includes(searchParams.quickFilter)
-                : true;
+            const isRatingMatch = hotel.ratings >= rating;
 
-            return isLocationMatch && isDateMatch && isAmenityMatch && isBudgetMatch && isRatingMatch && isQuickFilterMatch;
+            return isLocationMatch && isRoomTypeMatch && isDateMatch &&
+                isAmenityMatch && isBudgetMatch && isRatingMatch;
         });
 
         setFilteredHotels(results);
-    }, [searchParams]);
+    }, [searchParams, budget, rating, setFilteredHotels]);
 
     return (
-        <div className="search-filter">
-            <h2>Search and Filter Hotels</h2>
+        <aside className="filters">
+            <h3>Refine your search</h3>
+            <div className="filter-group">
 
-            {/* Location Filter */}
-            <Select
-                options={locationOptions}
-                placeholder="Select Location"
-                onChange={(selectedOption) => setSearchParams({ ...searchParams, location: selectedOption?.value || "" })}
-            />
+                {/* Budget Range Slider */}
+                <div className="filter-section">
+                    <h4>Price Range</h4>
+                    <p>Budget Range: ${budget[0]} - ${budget[1]}</p>
+                    <input
+                        type="range"
+                        min="0"
+                        max="500"
+                        step="10"
+                        value={budget[1]}
+                        onChange={(e) => setBudget([budget[0], parseInt(e.target.value)])}
+                        className="slider"
+                    />
+                </div>
 
-            {/* Date Filters */}
-            <div className="date-filters">
-                <input
-                    type="date"
-                    placeholder="Check-in Date"
-                    onChange={(e) => setSearchParams({ ...searchParams, checkIn: e.target.value })}
-                />
-                <input
-                    type="date"
-                    placeholder="Check-out Date"
-                    onChange={(e) => setSearchParams({ ...searchParams, checkOut: e.target.value })}
-                />
-            </div>
+                {/* Rating Filter */}
+                <div className="filter-section">
+                    <h4>Minimum Rating</h4>
+                    <p>{rating} stars</p>
+                    <input
+                        type="range"
+                        min="0"
+                        max="5"
+                        step="0.5"
+                        value={rating}
+                        onChange={(e) => setRating(Number(e.target.value))}
+                    />
+                </div>
 
-            {/* Guest Selection */}
-            <div className="guest-selection">
-                <h4>Who:</h4>
-                <div className="guest-inputs">
-                    <div className="guest-input">
-                        <label>Adults:</label>
-                        <input
-                            type="number"
-                            min="1"
-                            value={searchParams.guests.adults}
-                            onChange={(e) => setSearchParams({
-                                ...searchParams,
-                                guests: {
-                                    ...searchParams.guests,
-                                    adults: Math.max(1, parseInt(e.target.value) || 1)
-                                }
-                            })}
-                        />
-                    </div>
-                    <div className="guest-input">
-                        <label>Children:</label>
-                        <input
-                            type="number"
-                            min="0"
-                            value={searchParams.guests.children}
-                            onChange={(e) => setSearchParams({
-                                ...searchParams,
-                                guests: {
-                                    ...searchParams.guests,
-                                    children: Math.max(0, parseInt(e.target.value) || 0)
-                                }
-                            })}
-                        />
-                    </div>
+                {/* Amenities */}
+                <div className="amenities-section">
+                    <h4>Amenities</h4>
+                    {[
+                        "Pool",
+                        "Gym",
+                        "Free WiFi",
+                        "Breakfast Included",
+                        "Mini Bar",
+                        "Ocean View",
+                        "Mountain View",
+                        "City View"
+                    ].map((amenity) => (
+                        <label key={amenity}>
+                            <input
+                                type="checkbox"
+                                onChange={(e) => {
+                                    const updatedAmenities = e.target.checked
+                                        ? [...searchParams.amenities, amenity]
+                                        : searchParams.amenities.filter(a => a !== amenity);
+                                    setSearchParams({ ...searchParams, amenities: updatedAmenities });
+                                }}
+                            />
+                            {amenity}
+                        </label>
+                    ))}
                 </div>
             </div>
-
-            {/* Amenities Filter */}
-            <Select
-                isMulti
-                options={amenitiesOptions}
-                placeholder="Select Amenities"
-                onChange={(selectedOptions) =>
-                    setSearchParams({ ...searchParams, amenities: selectedOptions.map((option) => option.value) })
-                }
-            />
-
-            {/* Budget Range Slider */}
-            <div>
-                <p>Budget Range: ${searchParams.budget[0]} - ${searchParams.budget[1]}</p>
-                <Slider
-                    value={searchParams.budget}
-                    onChange={(value) => setSearchParams({ ...searchParams, budget: value })}
-                    min={0}
-                    max={500}
-                    step={10}
-                    className="slider"
-                />
-            </div>
-
-            {/* Star Rating */}
-            <div>
-                <p>Minimum Rating: {searchParams.rating} stars</p>
-                <input
-                    type="range"
-                    min="0"
-                    max="5"
-                    step="0.5"
-                    value={searchParams.rating}
-                    onChange={(e) => setSearchParams({ ...searchParams, rating: Number(e.target.value) })}
-                />
-            </div>
-
-            {/* Quick Filters */}
-            <Select
-                options={quickFilters}
-                placeholder="Quick Filters"
-                onChange={(selectedOption) => setSearchParams({ ...searchParams, quickFilter: selectedOption?.value || "" })}
-            />
-
-            {/* Filtered Results */}
-            <div className="results">
-                <h3>Filtered Hotels:</h3>
-                {filteredHotels.length > 0 ? (
-                    filteredHotels.map((hotel) => (
-                        <div key={hotel.id} className="hotel">
-                            <h4>{hotel.name}</h4>
-                            <p>Location: {hotel.location}</p>
-                            <p>Rating: {hotel.ratings} stars</p>
-                        </div>
-                    ))
-                ) : (
-                    <p>No hotels match your criteria.</p>
-                )}
-            </div>
-        </div>
+        </aside>
     );
 };
 
-export default FilterOptions
+export default FilterOptions;
 

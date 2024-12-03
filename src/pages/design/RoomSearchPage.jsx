@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import FilterOptions from "../../components/filterOptions/FilterOptions";
+import hotelsData from "../../data/hotels-details.json";
+import SearchBar from "../../components/searchBar/SearchBar";
 import "./RoomSearchPage.css";
 
 const RoomSearchPage = () => {
+  const [filteredHotels, setFilteredHotels] = useState(hotelsData);
+
   return (
     <div className="room-search-page">
       {/* Navigation Bar */}
@@ -19,102 +24,38 @@ const RoomSearchPage = () => {
       <header className="hero-section">
         <h1>Search for available rooms and make a reservation</h1>
         <p>Select your room type and preferred dates to book your stay</p>
-        <div className="search-box">
-          <select>
-            <option>Room type / Hotel name</option>
-          </select>
-          <select>
-            <option>Location</option>
-          </select>
-          <input type="date" placeholder="Check-in date" />
-          <button className="search-btn">Search</button>
-        </div>
+        <SearchBar />
       </header>
 
-      {/* Filters and Results Section */}
+      {/* Main Content */}
       <div className="main-content">
-        {/* Filters Sidebar */}
-        <aside className="filters">
-          <h3>Refine your search</h3>
-          <div className="filter-group">
-            <input type="text" placeholder="Search" />
-            <h4>Room type</h4>
-            <ul>
-              {[
-                "Amenities",
-                "Breakfast",
-                "Spa services",
-                "Pool",
-                "Fitness center",
-                "Jacuzzi",
-                "Sauna",
-              ].map((feature, index) => (
-                <li key={index}>
-                  <label>
-                    <input type="checkbox" />
-                    {feature}
-                  </label>
-                </li>
-              ))}
-            </ul>
-            <h4>Room features</h4>
-            <ul>
-              {["Balcony", "Kitchenette", "Minibar", "Room service"].map(
-                (feature, index) => (
-                  <li key={index}>
-                    <label>
-                      <input type="checkbox" />
-                      {feature}
-                    </label>
-                  </li>
-                )
-              )}
-            </ul>
-            <h4>View</h4>
-            <select>
-              <option>Country (Code)</option>
-            </select>
-            <select>
-              <option>City (Code)</option>
-            </select>
-            <button className="apply-filters-btn">Apply filter</button>
-          </div>
-        </aside>
+        <FilterOptions
+          filteredHotels={filteredHotels}
+          setFilteredHotels={setFilteredHotels}
+        />
 
         {/* Rooms List */}
         <section className="room-list">
           <div className="results-header">
-            <p>Showing 175 room options</p>
+            <p>Showing {filteredHotels.length} options</p>
             <select>
               <option>Sort by: Price</option>
             </select>
           </div>
           <div className="rooms-grid">
-            {[
-              { name: "Cozy Retreat", description: "Queen bed suite" },
-              { name: "Sunset View", description: "Panoramic oceanfront room" },
-              {
-                name: "City Lights",
-                description: "Downtown skyline view suite",
-              },
-              {
-                name: "Tranquil Haven",
-                description: "Spa and wellness retreat",
-              },
-              { name: "Rustic Charm", description: "Countryside cottage room" },
-              { name: "Ocean Breeze", description: "Beachfront villa room" },
-              { name: "Mountain Escape", description: "Alpine cabin room" },
-              { name: "Urban Oasis", description: "Metropolitan loft room" },
-              {
-                name: "Serene Sanctuary",
-                description: "Nature-inspired eco room",
-              },
-            ].map((room, index) => (
-              <div key={index} className="room-card">
-                <img src="./images/room-placeholder.jpg" alt={room.name} />
-                <h3>{room.name}</h3>
-                <p>{room.description}</p>
-              </div>
+            {filteredHotels.map((hotel) => (
+              hotel.rooms.map((room, roomIndex) => (
+                <div key={`${hotel.id}-${roomIndex}`} className="room-card">
+                  <img
+                    src={room.photos?.[0] || "./images/room-placeholder.jpg"}
+                    alt={room.type}
+                  />
+                  <h3>{hotel.name} - {room.type}</h3>
+                  <p>{hotel.location}</p>
+                  <p>Price: ${room.pricePerNight} per night</p>
+                  <p>Rating: {hotel.ratings} ⭐</p>
+                </div>
+              ))
             ))}
           </div>
           {/* Pagination */}
