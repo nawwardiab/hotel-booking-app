@@ -1,5 +1,5 @@
 // src/components/RoomListings.jsx
-import hotelsData from "../data/hotels.json";
+import hotelsData from "../../data/hotels-details.json";
 import HotelCard from "./HotelCard";
 
 const RoomListings = () => {
