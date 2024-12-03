@@ -1,26 +1,23 @@
 // src/components/HotelCard.jsx
-import RoomCard from "./RoomCard";
+// import "./HotelCard.css"
 
 const HotelCard = ({ hotel }) => {
+  const { name, ratings, rooms, photos } = hotel;
+
   return (
     <div className="hotel-card">
-      <h2>{hotel.name}</h2>
-      <p>{hotel.location}</p>
-      <p>Rating: {hotel.ratings} / 5</p>
-      <div className="hotel-photos">
-        {hotel.photos.map((photo, index) => (
-          <img
-            key={index}
-            src={photo}
-            alt={`${hotel.name} photo ${index + 1}`}
-            loading="lazy"
-          />
-        ))}
-      </div>
-      <div className="rooms">
-        {hotel.rooms.map((room, index) => (
-          <RoomCard key={index} hotelId={hotel.id} room={room} />
-        ))}
+      {/* Hotel image */}
+      <img
+        className="hotel-card-image"
+        src={photos[0]}
+        alt={`Image of ${name}`}
+      />
+
+      {/* Hotel details */}
+      <div className="hotel-card-info">
+        <h2 className="hotel-card-name">{name}</h2>
+        <p className="hotel-card-rating">Rating: {ratings}/5</p>
+        <p className="hotel-card-rooms">Rooms Available: {rooms.length}</p>
       </div>
     </div>
   );
