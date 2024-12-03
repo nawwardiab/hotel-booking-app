@@ -1,7 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import SearchBar from "../../components/searchBar/SearchBar";
 import "./LandingPage.css";
 
 const LandingPage = () => {
+  const navigate = useNavigate();
+
+  const handleSearchClick = () => {
+    navigate("/search");
+  };
+
   return (
     <div className="landing-page">
       <nav className="navbar">
@@ -20,12 +28,9 @@ const LandingPage = () => {
       <header className="hero-section">
         <h1>Discover your perfect room on StayEasy</h1>
         <p>Find your ideal room among thousands available!</p>
-        <div className="search-box">
-          <input type="text" placeholder="Check availability" />
-          <input type="text" placeholder="Pick check-in" />
-          <input type="text" placeholder="Pick check-out" />
-          <input type="text" placeholder="Select guests" />
-          <button className="search-icon-btn">→</button>
+        <div>
+          <SearchBar />
+          <button onClick={handleSearchClick}>Search</button>
         </div>
       </header>
 
