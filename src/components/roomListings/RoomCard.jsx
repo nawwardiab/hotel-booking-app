@@ -1,37 +1,76 @@
 // src/components/RoomCard.jsx
-// import "./RoomCard.css"
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { BookingContext } from '../../context/BookingContext';
+import './RoomCard.css';
 
-const RoomCard = ({ room }) => {
-  const { type, pricePerNight, amenities, photos, hotelName } = room;
+const RoomCard = ({ room, hotel }) => {
+  if (!hotel) {
+    return null;
+  }
 
-  // const handleBookNow = () =>
-  //   navigate(`/hotels/${hotelId}/rooms/${room.type}/booking`);
+  const { updateBookingDetails } = useContext(BookingContext);
+  const navigate = useNavigate();
+
+  const {
+    type,
+    pricePerNight,
+    amenities,
+    roomUniqueId,
+    photos
+  } = room;
+
+  const handleBookingData = (destination) => {
+    // Common function to handle booking data for both buttons
+    updateBookingDetails({
+      roomType: type,
+      hotelName: hotel.name,
+      pricePerNight,
+      location: hotel.location,
+      roomUniqueId,
+      photos,
+      amenities,
+      ratings: hotel.ratings,
+      basePrice: pricePerNight,
+      roomTotal: pricePerNight,
+      serviceFee: 0,
+      additionalGuestFee: 0,
+      childrenFee: 0,
+      nights: 0
+    });
+    navigate(destination);
+  };
 
   return (
     <div className="room-card">
-      {/* Image of the room */}
       <img
-        className="room-card-image"
-        src={photos[0]}
-        alt={`Image of ${type}`}
+        src={photos?.[0] || './images/room-placeholder.jpg'}
+        alt={type}
       />
-
-      {/* Room Details */}
-      <div className="room-card-info">
-        <h3 className="room-card-title">
-          {type} - {hotelName}
-        </h3>
-        <p className="room-card-price">Price per Night: ${pricePerNight}</p>
-
-        <ul className="room-card-features">
-          {amenities.map((feature, index) => (
-            <li key={index}>{feature}</li>
-          ))}
-        </ul>
-      </div>
-      <button className="room-card-book-button">Book Now</button>
-
-      {/* <button onClick={handleBookNow}>Book {room.type} Now</button> */}
+      <p>Rating: {hotel?.ratings || 'N/A'} ⭐</p>
+      <h3 className="room-card-title">
+        {type} - {hotel?.name}
+      </h3>
+      <p>{hotel?.location}</p>
+      <p className="room-card-price">${pricePerNight} per night</p>
+      <ul className="room-card-features">
+        {amenities.slice(0, 3).map((feature, index) => (
+          <li key={index}>{feature}</li>
+        ))}
+        {amenities.length > 3 && <li>+ more...</li>}
+      </ul>
+      <button 
+        onClick={() => handleBookingData(`/room/${roomUniqueId}`)}
+        className="room-card-book-button"
+      >
+        View Details
+      </button>
+      <button 
+        onClick={() => handleBookingData('/booking')}
+        className="room-card-book-button"
+      >
+        Book Now
+      </button>
     </div>
   );
 };

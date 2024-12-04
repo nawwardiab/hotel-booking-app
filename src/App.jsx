@@ -1,17 +1,16 @@
-
-import AppRoutes from "./routes/AppRoutes";
-
-
+import React from 'react';
+import { BookingProvider } from './context/BookingContext';
+import { SearchProvider } from './context/SearchContext';
+import AppRoutes from './routes/AppRoutes';
 
 function App() {
-    return (
-
-        <div>
-            <h1>Welcome to our Project</h1>
-            <AppRoutes />
-        </div>
-    )
-
+  return (
+    <SearchProvider>
+      <BookingProvider>
+        <AppRoutes></AppRoutes>
+      </BookingProvider>
+    </SearchProvider>
+  );
 }
 
 export default App;

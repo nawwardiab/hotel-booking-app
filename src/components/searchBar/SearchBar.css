@@ -1,0 +1,82 @@
+/* Base container */
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Unified input styles */
+.search-box input,
+.search-box select {
+  border-radius: 12px;
+  border: 1px solid #444;
+  background-color: #2d2e32;
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+/* Common hover state */
+.search-box input:hover,
+.search-box select:hover,
+.search-box input[type="date"]:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background-color: #3a3b40;
+}
+
+/* Common focus states */
+.search-box input:focus,
+.search-box select:focus,
+.search-box input[type="date"]:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+  background-color: #3a3b40;
+}
+
+/* Select container */
+.search-select {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex: 3;
+}
+
+/* Date inputs */
+.search-box input[type="date"] {
+  padding: 0.75rem 1rem;
+  background-color: #2f322d;
+  color: #f0e3e2;
+  border: 1px solid #333;
+  min-width: 150px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+}
+
+/* Button styles */
+.search-box button {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(45deg, #6366f1, #06b6d4);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.search-box button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.4);
+}
+
+/* Style for react-select components */
+.search-box > div {
+  flex: 1;
+  min-width: 150px;
+}
