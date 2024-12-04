@@ -1,17 +1,13 @@
-
+import React from "react";
 import AppRoutes from "./routes/AppRoutes";
-
-
+import { SearchProvider } from "./context/SearchContext";
 
 function App() {
-    return (
-
-        <div>
-            <h1>Welcome to our Project</h1>
-            <AppRoutes />
-        </div>
-    )
-
+  return (
+    <SearchProvider>
+      <AppRoutes />
+    </SearchProvider>
+  );
 }
 
 export default App;

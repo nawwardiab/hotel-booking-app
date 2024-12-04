@@ -1,69 +1,13 @@
 /* Global styles for the landing page */
 .landing-page {
-  font-family: 'Inter', sans-serif;
-}
-
-/* Navbar styles */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 4rem;
-  background-color: #1f1f1f;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.navbar-brand {
-  font-size: 1.8rem;
-  font-weight: 700;
-  background: linear-gradient(45deg, #4f46e5, #06b6d4);
-  color: transparent;
-}
-
-.navbar-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-
-.navbar-links li {
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.navbar-links li:hover {
-  color: #06b6d4;
-}
-
-.navbar-actions {
-  display: flex;
-  gap: 1rem;
-}
-
-.navbar-actions button {
-  padding: 0.5rem 1.5rem;
-  border-radius: 8px;
-  border: none;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.search-btn {
-  background: linear-gradient(45deg, #4f46e5, #06b6d4);
-  color: white;
-}
-
-.view-btn {
-  background-color: #f3f4f6;
-  color: #4f46e5;
+  font-family: "Inter", sans-serif;
 }
 
 /* Hero section styles */
 .hero-section {
   text-align: center;
   padding: 6rem 2rem;
-  background: linear-gradient(rgba(37,99,235,0.1), rgba(37,99,235,0.05));
+  background: linear-gradient(rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.05));
 }
 
 .hero-section h1 {
@@ -112,14 +56,6 @@
   border-color: #4f46e5;
 }
 
-.footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 1.25rem 4rem;
-  background-color: rgba(31, 31, 31, 0.95);
-  backdrop-filter: blur(10px);
-}
-
 .hotel-card {
   position: relative;
   overflow: hidden;
@@ -128,17 +64,14 @@
   flex-direction: column;
   background: #161616;
   transition: all 0.4s ease;
-  box-shadow: 
-    0 10px 30px rgba(0, 0, 0, 0.2),
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2),
     inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .hotel-card:hover {
   transform: translateY(-8px);
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.3),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.2),
-    0 0 20px rgba(79, 70, 229, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2), 0 0 20px rgba(79, 70, 229, 0.2);
 }
 
 .hotel-card img {
@@ -157,7 +90,7 @@
 
 .hotel-info {
   padding: 1.5rem;
-  background: linear-gradient
+  background: linear-gradient;
 }
 
 .hotel-info h3 {
@@ -172,7 +105,7 @@
 }
 
 .join-now-btn {
-  background: linear-gradient(45deg, #2196F3, #1976D2);
+  background: linear-gradient(45deg, #2196f3, #1976d2);
   color: white;
   padding: 12px 32px;
   border: none;
@@ -187,7 +120,7 @@
 .join-now-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  background: linear-gradient(45deg, #1976D2, #1565C0);
+  background: linear-gradient(45deg, #1976d2, #1565c0);
 }
 
 .join-now-btn:active {
@@ -228,4 +161,3 @@
 .search-button i {
   font-size: 0.875rem;
 }
-

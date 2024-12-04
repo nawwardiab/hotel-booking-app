@@ -1,0 +1,54 @@
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 4rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.navbar-links li {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.navbar-links li:hover {
+  color: #2563eb;
+}
+
+.navbar-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar-actions button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.search-btn {
+  background-color: #2563eb;
+  color: white;
+}
+
+.view-btn {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}

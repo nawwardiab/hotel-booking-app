@@ -1,0 +1,55 @@
+.payment-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.payment-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+
+.payment-methods {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.method-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+
+.method-button.selected {
+  border-color: #007bff;
+  background: #f0f7ff;
+}
+
+.pay-now-btn {
+  width: 100%;
+  padding: 1rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 2rem;
+}
+
+.security-badges {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+} 
