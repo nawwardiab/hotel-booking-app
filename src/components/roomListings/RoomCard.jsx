@@ -1,53 +1,72 @@
 // src/components/RoomCard.jsx
-import "./RoomCard.css";
-import { Link } from "react-router-dom";
-import hotels from "../../data/hotels-details.json";
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { BookingContext } from '../../context/BookingContext';
+import './RoomCard.css';
 
-const RoomCard = ({ room }) => {
+const RoomCard = ({ room, hotel }) => {
+  const { updateBookingDetails } = useContext(BookingContext);
+  const navigate = useNavigate();
+
   const {
     type,
     pricePerNight,
     amenities,
-    location,
-    hotelName,
     roomUniqueId,
-    ratings,
+    photos
   } = room;
 
-  // Add error handling for image loading
-  // const handleImageError = (e) => {
-  //   e.target.src = "/images/placeholder.jpg";
-  //   console.log("Failed to load image:", photos[0]);
-  // };
+  const handleBookingData = (destination) => {
+    // Common function to handle booking data for both buttons
+    updateBookingDetails({
+      roomType: type,
+      hotelName: hotel.name,
+      pricePerNight,
+      location: hotel.location,
+      roomUniqueId,
+      photos,
+      amenities,
+      ratings: hotel.ratings,
+      basePrice: pricePerNight,
+      roomTotal: pricePerNight,
+      serviceFee: 0,
+      additionalGuestFee: 0,
+      childrenFee: 0,
+      nights: 0
+    });
+    navigate(destination);
+  };
 
   return (
     <div className="room-card">
       <img
-        src={room.photos?.[0] || "./images/room-placeholder.jpg"}
-        alt={room.type}
+        src={photos?.[0] || './images/room-placeholder.jpg'}
+        alt={type}
       />
-      <p>Rating: {ratings} ⭐</p>
-
-      {/* Room details */}
-
+      <p>Rating: {hotel.ratings} ⭐</p>
       <h3 className="room-card-title">
-        {type} - {hotelName}
+        {type} - {hotel.name}
       </h3>
-      <p>{location}</p>
+      <p>{hotel.location}</p>
       <p className="room-card-price">${pricePerNight} per night</p>
       <ul className="room-card-features">
-        {/* List features of the room */}
         {amenities.slice(0, 3).map((feature, index) => (
           <li key={index}>{feature}</li>
         ))}
         {amenities.length > 3 && <li>+ more...</li>}
       </ul>
-      <Link to={`/room/${roomUniqueId}`} className="room-card-book-button">
+      <button 
+        onClick={() => handleBookingData(`/room/${roomUniqueId}`)}
+        className="room-card-book-button"
+      >
         View Details
-      </Link>
-      <Link to={`/booking/${roomUniqueId}`} className="room-card-book-button">
+      </button>
+      <button 
+        onClick={() => handleBookingData('/booking')}
+        className="room-card-book-button"
+      >
         Book Now
-      </Link>
+      </button>
     </div>
   );
 };

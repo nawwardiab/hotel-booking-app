@@ -1,312 +1,219 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { BookingContext } from '../../context/BookingContext';
 import Calendar from '../calendar/Calendar';
 import './BookingForm.css';
-import hotelData from '../../data/hotels-details.json';
+import { useNavigate } from 'react-router-dom';
 
-const BookingForm = ({ selectedHotelId, selectedRoomType }) => {
-  const navigate = useNavigate();
-  
-  const selectedHotel = hotelData.find(hotel => hotel.id === selectedHotelId) || hotelData[0];
-  const selectedRoom = selectedHotel.rooms.find(room => room.type === selectedRoomType) || selectedHotel.rooms[0];
-  
-  const [formData, setFormData] = useState({
-    checkIn: '',
-    checkOut: '',
-    adults: 1,
-    children: 0,
-    roomType: 'standard',
-    fullName: '',
-    birthDate: '',
-    familyMembers: [],
-    streetAddress: '',
-    postCode: '',
-    city: '',
-    email: '',
-    phonePrefix: '',
-    phoneNumber: ''
-  });
-
+const BookingForm = () => {
+  const { bookingDetails, updateBookingDetails } = useContext(BookingContext);
+  const [familyMembers, setFamilyMembers] = useState([{ id: 1 }]);
   const [showCheckInCalendar, setShowCheckInCalendar] = useState(false);
   const [showCheckOutCalendar, setShowCheckOutCalendar] = useState(false);
 
-  // Calculate number of nights between check-in and check-out
-  const calculateNights = () => {
-    if (!formData.checkIn || !formData.checkOut) return 0;
-    const checkIn = new Date(formData.checkIn);
-    const checkOut = new Date(formData.checkOut);
-    const diffTime = Math.abs(checkOut - checkIn);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    console.log('Number of nights:', diffDays); // Debug log
-    return diffDays;
-  };
+  const navigate = useNavigate();
 
-  // Calculate total cost
-  const calculateTotalCost = () => {
-    const nights = calculateNights();
-    const basePrice = selectedRoom.pricePerNight || 0; // Use price from selected room
-    const roomTotal = basePrice * nights;
-    const additionalGuestFee = formData.adults > 1 ? (formData.adults - 1) * 50 : 0;
-    const childrenFee = formData.children * 30;
-    const serviceFee = roomTotal * 0.1; // 10% service fee
-    
-    console.log('Cost calculation:', {
-      nights,
-      basePrice,
-      roomTotal,
-      additionalGuestFee,
-      childrenFee,
-      serviceFee
-    });
-    
+  const calculatePrice = () => {
+    if (!bookingDetails.checkIn || !bookingDetails.checkOut) {
+      return {
+        nights: 0,
+        roomTotal: 0,
+        taxesAndFees: 0,
+        total: 0
+      };
+    }
+
+    const checkIn = new Date(bookingDetails.checkIn);
+    const checkOut = new Date(bookingDetails.checkOut);
+    const nights = Math.ceil((checkOut - checkIn) / (1000 * 60 * 60 * 24));
+    const roomTotal = nights * bookingDetails.pricePerNight;
+    const taxesAndFees = roomTotal * 0.1; // 10% tax
+    const total = roomTotal + taxesAndFees;
+
     return {
-      basePrice,
       nights,
       roomTotal,
-      additionalGuestFee,
-      childrenFee,
-      serviceFee,
-      total: roomTotal + additionalGuestFee + childrenFee + serviceFee
+      taxesAndFees,
+      total
     };
   };
 
-  const costs = calculateTotalCost();
-
-  const handleDateSelect = (type, date) => {
-    setFormData(prevState => ({
-      ...prevState,
-      [type]: date.toISOString().split('T')[0]
-    }));
-    if (type === 'checkIn') {
-      setShowCheckInCalendar(false);
-    } else {
-      setShowCheckOutCalendar(false);
-    }
+  const handleCheckInSelect = (date) => {
+    updateBookingDetails({
+      ...bookingDetails,
+      checkIn: date
+    });
+    setShowCheckInCalendar(false);
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    
-    // Show success message
-    alert('Booking Confirmed! Redirecting to home page...');
-    
-    // Navigate to home page after a short delay
-    setTimeout(() => {
-      navigate('/');
-    }, 1000);
+  const handleCheckOutSelect = (date) => {
+    updateBookingDetails({
+      ...bookingDetails,
+      checkOut: date
+    });
+    setShowCheckOutCalendar(false);
   };
 
   const addFamilyMember = () => {
-    setFormData(prevState => ({
-      ...prevState,
-      familyMembers: [
-        ...prevState.familyMembers,
-        { fullName: '', birthDate: '' }
-      ]
-    }));
+    const newMember = {
+      id: familyMembers.length + 1,
+    };
+    setFamilyMembers([...familyMembers, newMember]);
   };
 
-  const removeFamilyMember = (index) => {
-    setFormData(prevState => ({
-      ...prevState,
-      familyMembers: prevState.familyMembers.filter((_, i) => i !== index)
-    }));
+  const removeFamilyMember = (id) => {
+    setFamilyMembers(familyMembers.filter(member => member.id !== id));
   };
 
-  const handleFamilyMemberChange = (index, field, value) => {
-    setFormData(prevState => ({
-      ...prevState,
-      familyMembers: prevState.familyMembers.map((member, i) => {
-        if (i === index) {
-          return { ...member, [field]: value };
-        }
-        return member;
-      })
-    }));
+  const formatDate = (date) => {
+    if (!date) return '';
+    return new Date(date).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
+  const { nights, roomTotal, taxesAndFees, total } = calculatePrice();
+
+  const handleProceedToPayment = () => {
+    navigate('/payment');
   };
 
   return (
     <div className="main-content">
       <div className="form-section">
         <div className="form-card">
-          <h2>Guest Details</h2>
+          <h2>Primary Guest</h2>
           <div className="form-group">
-            <label>Primary Guest</label>
-            <input 
-              type="text" 
-              name="fullName"
-              value={formData.fullName}
-              onChange={handleChange}
-              placeholder="Enter Full Name" 
-            />
-            <input 
-              type="date" 
-              name="birthDate"
-              value={formData.birthDate}
-              onChange={handleChange}
-              placeholder="DD/MM/YYYY"
-              max={new Date().toISOString().split('T')[0]}
-            />
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your full name" />
           </div>
+          <div className="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="Enter your email" />
+          </div>
+          <div className="form-group">
+            <label>Phone</label>
+            <div className="phone-input-group">
+              <input type="text" placeholder="+1" />
+              <input type="tel" placeholder="Enter your phone number" />
+            </div>
+          </div>
+        </div>
 
-          {/* Secondary Guests */}
-          {formData.familyMembers.map((member, index) => (
-            <div className="form-group family-member" key={index}>
+        <div className="form-card">
+          <h2>Family Members</h2>
+          {familyMembers.map((member) => (
+            <div key={member.id} className="family-member">
               <div className="family-member-header">
-                <label>Secondary Guest {index + 1}</label>
-                <button 
-                  type="button" 
-                  className="remove-member-btn"
-                  onClick={() => removeFamilyMember(index)}
-                >
-                  ✕
-                </button>
+                <h3>Family Member {member.id}</h3>
+                {familyMembers.length > 1 && (
+                  <button
+                    className="remove-member-btn"
+                    onClick={() => removeFamilyMember(member.id)}
+                  >
+                    ×
+                  </button>
+                )}
               </div>
-              <input 
-                type="text" 
-                value={member.fullName}
-                onChange={(e) => handleFamilyMemberChange(index, 'fullName', e.target.value)}
-                placeholder="Enter Full Name" 
-              />
-              <input 
-                type="date" 
-                value={member.birthDate}
-                onChange={(e) => handleFamilyMemberChange(index, 'birthDate', e.target.value)}
-                placeholder="DD/MM/YYYY"
-                max={new Date().toISOString().split('T')[0]}
-              />
+              <div className="form-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter full name" />
+              </div>
+              <div className="form-group">
+                <label>Age</label>
+                <input type="number" placeholder="Enter age" />
+              </div>
             </div>
           ))}
-
-          <button 
-            type="button" 
-            className="add-member-btn"
-            onClick={addFamilyMember}
-          >
-            + Add Secondary Guest
+          <button className="add-member-btn" onClick={addFamilyMember}>
+            + Add Family Member
           </button>
-        </div>
-
-        <div className="form-card">
-          <h2>Billing Details</h2>
-          <input 
-            type="text" 
-            name="streetAddress"
-            value={formData.streetAddress}
-            onChange={handleChange}
-            placeholder="Enter Street Address" 
-          />
-          <input 
-            type="text" 
-            name="postCode"
-            value={formData.postCode}
-            onChange={handleChange}
-            placeholder="Enter Post Code" 
-          />
-          <input 
-            type="text" 
-            name="city"
-            value={formData.city}
-            onChange={handleChange}
-            placeholder="Enter City" 
-          />
-        </div>
-
-        <div className="form-card">
-          <h2>Contact Information</h2>
-          <input 
-            type="email" 
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Enter Email Address" 
-          />
-          <div className="phone-input-group">
-            <input 
-              type="text" 
-              name="phonePrefix"
-              value={formData.phonePrefix}
-              onChange={handleChange}
-              placeholder="Enter Prefix" 
-            />
-            <input 
-              type="text" 
-              name="phoneNumber"
-              value={formData.phoneNumber}
-              onChange={handleChange}
-              placeholder="Enter Phone Number" 
-            />
-          </div>
         </div>
       </div>
 
       <div className="summary-section">
-        <h2>Location:</h2>
-        <p>{selectedHotel.location}</p>
-        <h2>Accommodation:</h2>
-        <p>{selectedHotel.name}</p>
-        <h2>Rating:</h2>
-        <p>{selectedHotel.ratings} Stars</p>
-        <h2>Room Type:</h2>
-        <p>{selectedRoom.type}</p>
-        <h2>Check-In Date:</h2>
-        <div className="date-inputs">
-          <input
-            type="text"
-            value={formData.checkIn}
-            onClick={() => setShowCheckInCalendar(!showCheckInCalendar)}
-            readOnly
-            placeholder="Select Check-in"
-          />
-          {showCheckInCalendar && (
-            <div className="calendar-popup">
-              <Calendar 
-                onDateSelect={(date) => handleDateSelect('checkIn', date)}
-                selectedDate={formData.checkIn ? new Date(formData.checkIn) : null}
+        <h2>Booking Summary</h2>
+        <div className="booking-details-column">
+          <div className="summary-item">
+            <span className="summary-label">Location</span>
+            <span className="summary-value">{bookingDetails?.location || 'Not specified'}</span>
+          </div>
+
+          <div className="summary-item">
+            <span className="summary-label">Hotel</span>
+            <span className="summary-value">{bookingDetails?.hotelName || 'Not specified'}</span>
+          </div>
+
+          <div className="summary-item">
+            <span className="summary-label">Room Type</span>
+            <span className="summary-value">{bookingDetails?.roomType || 'Not specified'}</span>
+          </div>
+
+          <div className="summary-item">
+            <span className="summary-label">Rating</span>
+            <span className="summary-value">{bookingDetails?.ratings ? `${bookingDetails.ratings} ⭐` : 'Not rated'}</span>
+          </div>
+
+          <div className="summary-item">
+            <span className="summary-label">Check-in Date</span>
+            <div className="date-picker">
+              <input 
+                type="text" 
+                value={formatDate(bookingDetails.checkIn)}
+                onClick={() => {
+                  setShowCheckInCalendar(!showCheckInCalendar);
+                  setShowCheckOutCalendar(false);
+                }}
+                readOnly
+                placeholder="Select check-in date"
               />
+              {showCheckInCalendar && (
+                <div className="calendar-popup">
+                  <Calendar 
+                    onDateSelect={handleCheckInSelect}
+                    selectedDate={bookingDetails.checkIn}
+                  />
+                </div>
+              )}
             </div>
-          )}
-          <input
-            type="text"
-            value={formData.checkOut}
-            onClick={() => setShowCheckOutCalendar(!showCheckOutCalendar)}
-            readOnly
-            placeholder="Select Check-out"
-          />
-          {showCheckOutCalendar && (
-            <div className="calendar-popup">
-              <Calendar 
-                onDateSelect={(date) => handleDateSelect('checkOut', date)}
-                selectedDate={formData.checkOut ? new Date(formData.checkOut) : null}
+          </div>
+
+          <div className="summary-item">
+            <span className="summary-label">Check-out Date</span>
+            <div className="date-picker">
+              <input 
+                type="text" 
+                value={formatDate(bookingDetails.checkOut)}
+                onClick={() => {
+                  setShowCheckOutCalendar(!showCheckOutCalendar);
+                  setShowCheckInCalendar(false);
+                }}
+                readOnly
+                placeholder="Select check-out date"
               />
+              {showCheckOutCalendar && (
+                <div className="calendar-popup">
+                  <Calendar 
+                    onDateSelect={handleCheckOutSelect}
+                    selectedDate={bookingDetails.checkOut}
+                  />
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
+
         <div className="cost-breakdown">
-          <p>Room Price: €{costs.basePrice} × {costs.nights} nights = €{costs.roomTotal}</p>
-          {costs.additionalGuestFee > 0 && (
-            <p>Additional Guest Fee: €{costs.additionalGuestFee}</p>
-          )}
-          {costs.childrenFee > 0 && (
-            <p>Children Fee: €{costs.childrenFee}</p>
-          )}
-          <p>Service Fee: €{costs.serviceFee}</p>
-          <h3>TOTAL COST: €{costs.total}</h3>
+          <p>Number of Nights: {nights}</p>
+          <p>Room Rate: ${bookingDetails.pricePerNight} × {nights} nights</p>
+          <p>Room Total: ${roomTotal}</p>
+          <p>Taxes & Fees: ${taxesAndFees.toFixed(2)}</p>
+          <h3>Total: ${total.toFixed(2)}</h3>
         </div>
-        <button 
-          className="confirm-btn" 
-          onClick={handleSubmit}
-        >
-          Confirm Booking
+
+        <button onClick={handleProceedToPayment} className="confirm-btn">
+          Proceed to Payment
         </button>
       </div>
     </div>

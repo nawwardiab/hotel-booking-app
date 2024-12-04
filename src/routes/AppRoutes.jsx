@@ -9,6 +9,7 @@ import ConfirmationPage from "../pages/design/ConfirmationPage";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import RoomListings from "../components/roomListings/RoomListings";
+import Booking from "../pages/Booking";
 
 const AppRoutes = () => {
   return (
@@ -20,7 +21,7 @@ const AppRoutes = () => {
         <Route path="/room/:roomId" element={<RoomDetailPage />} />
         <Route path="/hotel" element={<HotelDetails />} />
         <Route path="/hotel/:hotelId/rooms" element={<RoomListings />} />
-        {/* <Route path="/booking" element={<BookingPage />} /> */}
+        <Route path="/booking" element={<BookingPage />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/confirmation" element={<ConfirmationPage />} />
         <Route path="/booking/:roomId" element={<BookingPage />} />

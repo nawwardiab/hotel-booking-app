@@ -1,95 +1,59 @@
 // RoomDetailPage.jsx
-import React from "react";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { BookingContext } from "../../context/BookingContext";
 import "./RoomDetailPage.css";
-import { useParams, Link, useNavigate } from "react-router-dom";
-import hotels from "../../data/hotels-details.json";
 
-/**
- * Component representing the detailed view of a room.
- * Displays room information, booking options, and related rooms.
- * Uses data from the provided dataset.
- */
 const RoomDetailPage = () => {
-  const { roomId } = useParams();
   const navigate = useNavigate();
+  const { bookingDetails, updateBookingDetails } = useContext(BookingContext);
 
-  const allRooms = hotels.flatMap((hotel, hotelIndex) =>
-    hotel.rooms.map((room, roomIndex) => ({
-      ...room,
-      hotelName: hotel.name,
-      hotelId: hotel.id,
-      roomUniqueId: `${hotel.id}-${roomIndex}`,
-    }))
-  );
-  const room = allRooms.find((room) => room.roomUniqueId === roomId);
-
-  // Ensure room exists before rendering details
-  if (!room) {
-    return <p>Room not found.</p>;
+  if (!bookingDetails.roomType) {
+    return <div>Room not found</div>;
   }
 
-  const { type, description, pricePerNight, photos, amenities, hotelName } =
-    room;
+  const handleBookNow = () => {
+    // We already have the details in context, just navigate
+    navigate('/booking');
+  };
 
   return (
-    <div className="room-detail-page">
-      <header className="room-header">
-        {/* Main image of the room */}
-        <img
-          className="header-image"
-          src={photos[0]}
-          alt={`Image of ${type}`}
-        />
-        <h1>
-          {type} - {hotelName}
-        </h1>
-      </header>
+    <div className="room-detail-container">
+      <div className="room-images">
+        {bookingDetails.photos?.map((photo, index) => (
+          <img key={index} src={photo} alt={`Room view ${index + 1}`} />
+        ))}
+      </div>
 
-      {/* Room information */}
       <div className="room-info">
-        <p>{description ? description : "No description available."}</p>
-        <p>Price: ${pricePerNight} per night</p>
-        <ul>
-          {amenities.map((amenity, index) => (
-            <li key={index}>{amenity}</li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Booking widget */}
-      <div className="booking-widget">
-        <h3>Book this room</h3>
-        <Link to={`/booking/${roomId}`} className="book-now-btn">
-          Book Now
-        </Link>
-      </div>
-
-      {/* Back Button */}
-      <button onClick={() => navigate(-1)} className="back-btn">
-        Go Back
-      </button>
-
-      {/* Related rooms section */}
-      <section className="related-rooms">
-        <h3>Related Rooms</h3>
-        <div className="related-rooms-grid">
-          {allRooms
-            .filter(
-              (relatedRoom) =>
-                relatedRoom.hotelId === room.hotelId &&
-                relatedRoom.type !== type
-            )
-            .map((relatedRoom) => (
-              <div key={relatedRoom.roomUniqueId} className="related-room-card">
-                <img
-                  src={relatedRoom.photos[0]}
-                  alt={`Image of ${relatedRoom.type}`}
-                />
-                <p>{relatedRoom.type}</p>
-              </div>
-            ))}
+        <h1>{bookingDetails.roomType}</h1>
+        <p className="hotel-name">{bookingDetails.hotelName}</p>
+        <p className="location">{bookingDetails.location}</p>
+        <div className="rating">
+          <span>{bookingDetails.ratings} ⭐</span>
         </div>
-      </section>
+
+        <div className="price-info">
+          <h2>${bookingDetails.pricePerNight}</h2>
+          <span>per night</span>
+        </div>
+
+        <div className="amenities">
+          <h3>Amenities</h3>
+          <ul>
+            {bookingDetails.amenities?.map((amenity, index) => (
+              <li key={index}>{amenity}</li>
+            ))}
+          </ul>
+        </div>
+
+        <button 
+          onClick={handleBookNow}
+          className="book-now-button"
+        >
+          Book Now
+        </button>
+      </div>
     </div>
   );
 };

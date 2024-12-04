@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 import './CreditCardForm.css';
+import CreditCardForm from '../../components/payment/CreditCardForm';
 
-const CreditCardForm = () => {
+const CreditCardForm = ({ onSubmit }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [cardData, setCardData] = useState({
     number: '',
@@ -14,6 +15,13 @@ const CreditCardForm = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setCardData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (onSubmit) {
+      onSubmit(cardData);
+    }
   };
 
   return (
@@ -33,7 +41,7 @@ const CreditCardForm = () => {
         </div>
       </ReactCardFlip>
 
-      <form className="card-form">
+      <form className="card-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Card Number</label>
           <input
@@ -85,6 +93,8 @@ const CreditCardForm = () => {
             />
           </div>
         </div>
+
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
