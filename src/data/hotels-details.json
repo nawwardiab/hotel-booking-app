@@ -5,9 +5,9 @@
     "location": "New York City, USA",
     "ratings": 4.5,
     "photos": [
-      "public/images/hotels/deluxe-01.jpg",
-      "public/images/hotels/deluxe-02.jpg",
-      "public/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/deluxe-01.jpg",
+      "/images/hotels/deluxe-02.jpg",
+      "/images/hotels/deluxeroom-03.jpg"
     ],
     "rooms": [
       {
@@ -23,8 +23,8 @@
         "cancellationPolicy": "Free cancellation up to 24 hours before check-in",
         "availability": ["2024-12-06", "2024-12-07", "2024-12-08"],
         "photos": [
-          "public/images/hotels/deluxeroom-04.jpg",
-          "public/images/hotels/deluxeroom-bedside.jpg"
+          "/images/hotels/deluxeroom-04.jpg",
+          "/images/hotels/deluxeroom-bedside.jpg"
         ]
       },
       {
@@ -34,8 +34,8 @@
         "cancellationPolicy": "Free cancellation up to 48 hours before check-in",
         "availability": ["2024-12-06", "2024-12-09", "2024-12-10"],
         "photos": [
-          "public/images/hotels/deluxeroombathroom.jpg",
-          "public/images/hotels/standardroom-01.jpg"
+          "/images/hotels/deluxeroombathroom.jpg",
+          "/images/hotels/standardroom-01.jpg"
         ]
       }
     ]
@@ -46,9 +46,9 @@
     "location": "Miami Beach, USA",
     "ratings": 4.2,
     "photos": [
-      "public/images/hotels/deluxe-01.jpg",
-      "public/images/hotels/deluxe-02.jpg",
-      "public/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/deluxe-01.jpg",
+      "/images/hotels/deluxe-02.jpg",
+      "/images/hotels/deluxeroom-03.jpg"
     ],
     "rooms": [
       {
@@ -58,8 +58,8 @@
         "cancellationPolicy": "Non-refundable",
         "availability": ["2024-12-10", "2024-12-11", "2024-12-12"],
         "photos": [
-          "public/images/hotels/deluxeroom-04.jpg",
-          "public/images/hotels/deluxeroom-bedside.jpg"
+          "/images/hotels/deluxeroom-04.jpg",
+          "/images/hotels/deluxeroom-bedside.jpg"
         ]
       },
       {
@@ -74,8 +74,8 @@
         "cancellationPolicy": "Free cancellation up to 72 hours before check-in",
         "availability": ["2024-12-08", "2024-12-09", "2024-12-15"],
         "photos": [
-          "public/images/hotels/deluxeroombathroom.jpg",
-          "public/images/hotels/standardroom-01.jpg"
+          "/images/hotels/deluxeroombathroom.jpg",
+          "/images/hotels/standardroom-01.jpg"
         ]
       }
     ]
@@ -86,9 +86,9 @@
     "location": "Aspen, USA",
     "ratings": 4.8,
     "photos": [
-      "public/images/hotels/deluxe-01.jpg",
-      "public/images/hotels/deluxe-02.jpg",
-      "public/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/deluxe-01.jpg",
+      "/images/hotels/deluxe-02.jpg",
+      "/images/hotels/deluxeroom-03.jpg"
     ],
     "rooms": [
       {
@@ -98,8 +98,8 @@
         "cancellationPolicy": "Free cancellation up to 48 hours before check-in",
         "availability": ["2024-12-15", "2024-12-16", "2024-12-17"],
         "photos": [
-          "public/images/hotels/deluxeroom-04.jpg",
-          "public/images/hotels/deluxeroom-bedside.jpg"
+          "/images/hotels/deluxeroom-04.jpg",
+          "/images/hotels/deluxeroom-bedside.jpg"
         ]
       },
       {
@@ -109,8 +109,8 @@
         "cancellationPolicy": "Non-refundable",
         "availability": ["2024-12-14", "2024-12-15", "2024-12-18"],
         "photos": [
-          "public/images/hotels/deluxeroombathroom.jpg",
-          "public/images/hotels/standardroom-01.jpg"
+          "/images/hotels/deluxeroombathroom.jpg",
+          "/images/hotels/standardroom-01.jpg"
         ]
       }
     ]
@@ -121,9 +121,9 @@
     "location": "London, UK",
     "ratings": 4.0,
     "photos": [
-      "public/images/hotels/deluxe-01.jpg",
-      "public/images/hotels/deluxe-02.jpg",
-      "public/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/deluxe-01.jpg",
+      "/images/hotels/deluxe-02.jpg",
+      "/images/hotels/deluxeroom-03.jpg"
     ],
     "rooms": [
       {
@@ -138,8 +138,8 @@
         "cancellationPolicy": "Free cancellation up to 24 hours before check-in",
         "availability": ["2024-12-20", "2024-12-21", "2024-12-22"],
         "photos": [
-          "public/images/hotels/deluxeroom-04.jpg",
-          "public/images/hotels/deluxeroom-bedside.jpg"
+          "/images/hotels/deluxeroom-04.jpg",
+          "/images/hotels/deluxeroom-bedside.jpg"
         ]
       },
       {
@@ -149,8 +149,8 @@
         "cancellationPolicy": "Non-refundable",
         "availability": ["2024-12-18", "2024-12-19", "2024-12-20"],
         "photos": [
-          "public/images/hotels/deluxeroombathroom.jpg",
-          "public/images/hotels/standardroom-01.jpg"
+          "/images/hotels/deluxeroombathroom.jpg",
+          "/images/hotels/standardroom-01.jpg"
         ]
       }
     ]
@@ -161,9 +161,9 @@
     "location": "Dubai, UAE",
     "ratings": 4.7,
     "photos": [
-      "public/images/hotels/deluxe-01.jpg",
-      "public/images/hotels/deluxe-02.jpg",
-      "public/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/deluxe-01.jpg",
+      "/images/hotels/deluxe-02.jpg",
+      "/images/hotels/deluxeroom-03.jpg"
     ],
     "rooms": [
       {
@@ -178,8 +178,8 @@
         "cancellationPolicy": "Free cancellation up to 72 hours before check-in",
         "availability": ["2024-12-25", "2024-12-26", "2024-12-27"],
         "photos": [
-          "public/images/hotels/deluxeroom-04.jpg",
-          "public/images/hotels/deluxeroom-bedside.jpg"
+          "/images/hotels/deluxeroom-04.jpg",
+          "/images/hotels/deluxeroom-bedside.jpg"
         ]
       },
       {
@@ -189,8 +189,8 @@
         "cancellationPolicy": "Non-refundable",
         "availability": ["2024-12-24", "2024-12-25", "2024-12-28"],
         "photos": [
-          "public/images/hotels/deluxeroombathroom.jpg",
-          "public/images/hotels/standardroom-01.jpg"
+          "/images/hotels/deluxeroombathroom.jpg",
+          "/images/hotels/standardroom-01.jpg"
         ]
       }
     ]
