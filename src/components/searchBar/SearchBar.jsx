@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import hotelsData from "../../data/hotels-details.json";
+import './SearchBar.css';
 
 function SearchBar() {
     const [searchParams, setSearchParams] = useState({
@@ -20,7 +21,7 @@ function SearchBar() {
     ))].map(type => ({ value: type, label: type }));
 
     return (
-        <div div className="search-box" >
+        <div className="search-box" >
             <Select
                 options={roomTypeOptions}
                 placeholder="Room type"
