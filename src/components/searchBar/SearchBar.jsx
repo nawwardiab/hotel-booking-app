@@ -10,6 +10,23 @@ function SearchBar() {
   const navigate = useNavigate();
 
   const handleSearchClick = () => {
+    if (
+      !searchParams.location ||
+      !searchParams.checkIn ||
+      !searchParams.checkOut
+    ) {
+      alert("Please fill in location and dates");
+      return;
+    }
+
+    const checkInDate = new Date(searchParams.checkIn);
+    const checkOutDate = new Date(searchParams.checkOut);
+
+    if (checkOutDate <= checkInDate) {
+      alert("Check-out date must be after check-in date");
+      return;
+    }
+
     navigate("/search");
   };
 
