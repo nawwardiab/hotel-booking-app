@@ -4,7 +4,11 @@
     "name": "Grand Plaza Hotel",
     "location": "New York City, USA",
     "ratings": 4.5,
-    "photos": ["grand_plaza_1.jpg", "grand_plaza_2.jpg", "grand_plaza_3.jpg"],
+    "photos": [
+      "public/images/hotels/deluxe-01.jpg",
+      "public/images/hotels/deluxe-02.jpg",
+      "public/images/hotels/deluxeroom-03.jpg"
+    ],
     "rooms": [
       {
         "type": "Deluxe Suite",
@@ -18,7 +22,10 @@
         ],
         "cancellationPolicy": "Free cancellation up to 24 hours before check-in",
         "availability": ["2024-12-06", "2024-12-07", "2024-12-08"],
-        "photos": ["deluxe_suite_1.jpg", "deluxe_suite_2.jpg"]
+        "photos": [
+          "public/images/hotels/deluxeroom-04.jpg",
+          "public/images/hotels/deluxeroom-bedside.jpg"
+        ]
       },
       {
         "type": "Standard Room",
@@ -26,7 +33,10 @@
         "amenities": ["Queen Bed", "Free WiFi", "Breakfast Included"],
         "cancellationPolicy": "Free cancellation up to 48 hours before check-in",
         "availability": ["2024-12-06", "2024-12-09", "2024-12-10"],
-        "photos": ["standard_room_1.jpg", "standard_room_2.jpg"]
+        "photos": [
+          "public/images/hotels/deluxeroombathroom.jpg",
+          "public/images/hotels/standardroom-01.jpg"
+        ]
       }
     ]
   },
@@ -36,9 +46,9 @@
     "location": "Miami Beach, USA",
     "ratings": 4.2,
     "photos": [
-      "seaside_resort_1.jpg",
-      "seaside_resort_2.jpg",
-      "seaside_resort_3.jpg"
+      "public/images/hotels/deluxe-01.jpg",
+      "public/images/hotels/deluxe-02.jpg",
+      "public/images/hotels/deluxeroom-03.jpg"
     ],
     "rooms": [
       {
@@ -47,7 +57,10 @@
         "amenities": ["Queen Bed", "Ocean View", "Balcony", "Free WiFi"],
         "cancellationPolicy": "Non-refundable",
         "availability": ["2024-12-10", "2024-12-11", "2024-12-12"],
-        "photos": ["ocean_view_1.jpg", "ocean_view_2.jpg"]
+        "photos": [
+          "public/images/hotels/deluxeroom-04.jpg",
+          "public/images/hotels/deluxeroom-bedside.jpg"
+        ]
       },
       {
         "type": "Family Suite",
@@ -60,7 +73,10 @@
         ],
         "cancellationPolicy": "Free cancellation up to 72 hours before check-in",
         "availability": ["2024-12-08", "2024-12-09", "2024-12-15"],
-        "photos": ["family_suite_1.jpg", "family_suite_2.jpg"]
+        "photos": [
+          "public/images/hotels/deluxeroombathroom.jpg",
+          "public/images/hotels/standardroom-01.jpg"
+        ]
       }
     ]
   },
@@ -70,9 +86,9 @@
     "location": "Aspen, USA",
     "ratings": 4.8,
     "photos": [
-      "mountain_lodge_1.jpg",
-      "mountain_lodge_2.jpg",
-      "mountain_lodge_3.jpg"
+      "public/images/hotels/deluxe-01.jpg",
+      "public/images/hotels/deluxe-02.jpg",
+      "public/images/hotels/deluxeroom-03.jpg"
     ],
     "rooms": [
       {
@@ -81,7 +97,10 @@
         "amenities": ["King Bed", "Fireplace", "Mountain View", "Hot Tub"],
         "cancellationPolicy": "Free cancellation up to 48 hours before check-in",
         "availability": ["2024-12-15", "2024-12-16", "2024-12-17"],
-        "photos": ["cabin_suite_1.jpg", "cabin_suite_2.jpg"]
+        "photos": [
+          "public/images/hotels/deluxeroom-04.jpg",
+          "public/images/hotels/deluxeroom-bedside.jpg"
+        ]
       },
       {
         "type": "Standard Room",
@@ -89,7 +108,10 @@
         "amenities": ["Queen Bed", "Free WiFi", "Breakfast Included"],
         "cancellationPolicy": "Non-refundable",
         "availability": ["2024-12-14", "2024-12-15", "2024-12-18"],
-        "photos": ["standard_room_1.jpg", "standard_room_2.jpg"]
+        "photos": [
+          "public/images/hotels/deluxeroombathroom.jpg",
+          "public/images/hotels/standardroom-01.jpg"
+        ]
       }
     ]
   },
@@ -99,9 +121,9 @@
     "location": "London, UK",
     "ratings": 4.0,
     "photos": [
-      "city_center_inn_1.jpg",
-      "city_center_inn_2.jpg",
-      "city_center_inn_3.jpg"
+      "public/images/hotels/deluxe-01.jpg",
+      "public/images/hotels/deluxe-02.jpg",
+      "public/images/hotels/deluxeroom-03.jpg"
     ],
     "rooms": [
       {
@@ -115,7 +137,10 @@
         ],
         "cancellationPolicy": "Free cancellation up to 24 hours before check-in",
         "availability": ["2024-12-20", "2024-12-21", "2024-12-22"],
-        "photos": ["executive_suite_1.jpg", "executive_suite_2.jpg"]
+        "photos": [
+          "public/images/hotels/deluxeroom-04.jpg",
+          "public/images/hotels/deluxeroom-bedside.jpg"
+        ]
       },
       {
         "type": "Economy Room",
@@ -123,7 +148,10 @@
         "amenities": ["Twin Bed", "Free WiFi"],
         "cancellationPolicy": "Non-refundable",
         "availability": ["2024-12-18", "2024-12-19", "2024-12-20"],
-        "photos": ["economy_room_1.jpg", "economy_room_2.jpg"]
+        "photos": [
+          "public/images/hotels/deluxeroombathroom.jpg",
+          "public/images/hotels/standardroom-01.jpg"
+        ]
       }
     ]
   },
@@ -133,9 +161,9 @@
     "location": "Dubai, UAE",
     "ratings": 4.7,
     "photos": [
-      "desert_oasis_1.jpg",
-      "desert_oasis_2.jpg",
-      "desert_oasis_3.jpg"
+      "public/images/hotels/deluxe-01.jpg",
+      "public/images/hotels/deluxe-02.jpg",
+      "public/images/hotels/deluxeroom-03.jpg"
     ],
     "rooms": [
       {
@@ -149,7 +177,10 @@
         ],
         "cancellationPolicy": "Free cancellation up to 72 hours before check-in",
         "availability": ["2024-12-25", "2024-12-26", "2024-12-27"],
-        "photos": ["luxury_suite_1.jpg", "luxury_suite_2.jpg"]
+        "photos": [
+          "public/images/hotels/deluxeroom-04.jpg",
+          "public/images/hotels/deluxeroom-bedside.jpg"
+        ]
       },
       {
         "type": "Standard Room",
@@ -157,7 +188,10 @@
         "amenities": ["Queen Bed", "Free WiFi", "Breakfast Included"],
         "cancellationPolicy": "Non-refundable",
         "availability": ["2024-12-24", "2024-12-25", "2024-12-28"],
-        "photos": ["standard_room_1.jpg", "standard_room_2.jpg"]
+        "photos": [
+          "public/images/hotels/deluxeroombathroom.jpg",
+          "public/images/hotels/standardroom-01.jpg"
+        ]
       }
     ]
   }

@@ -1,23 +1,15 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import SearchBar from "../../components/searchBar/SearchBar";
 import "./LandingPage.css";
 
 const LandingPage = () => {
-  const navigate = useNavigate();
-
-  const handleSearchClick = () => {
-    navigate("/search");
-  };
-
   return (
     <div className="landing-page">
       <header className="hero-section">
         <h1>Discover your perfect room on StayEasy</h1>
         <p>Find your ideal room among thousands available!</p>
-        <div>
+        <div className="search-container">
           <SearchBar />
-          <button onClick={handleSearchClick}>Search</button>
         </div>
       </header>
 
@@ -51,7 +43,10 @@ const LandingPage = () => {
             { name: "Sunrise Suites Bali", price: "$120/night" },
           ].map((hotel, index) => (
             <div key={index} className="hotel-card">
-              <img src="./images/hotel.jpg" alt={hotel.name} />
+              <img
+                src="./public/images/hotels/rydges-sydney-harbour.jpg"
+                alt={hotel.name}
+              />
               <div className="hotel-info">
                 <h3>{hotel.name}</h3>
                 <p>{hotel.price}</p>

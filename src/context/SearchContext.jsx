@@ -9,6 +9,7 @@ export const SearchProvider = ({ children }) => {
     checkIn: "",
     checkOut: "",
     roomType: "",
+    ratings: 0,
     amenities: [],
   });
 

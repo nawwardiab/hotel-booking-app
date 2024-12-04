@@ -2,6 +2,7 @@
 import React, { useContext } from "react";
 import { SearchContext } from "../../context/SearchContext";
 import RoomCard from "./RoomCard";
+import "./RoomCard";
 import "./RoomListings.css";
 
 const RoomListings = () => {
@@ -12,12 +13,13 @@ const RoomListings = () => {
       ...room,
       hotelName: hotel.name,
       hotelId: hotel.id,
+      ratings: hotel.ratings,
       roomUniqueId: `${hotel.id}-${index}`,
     }))
   );
 
   return (
-    <div className="room-listings-grid">
+    <div className="rooms-grid">
       {allRooms.map((room) => (
         <RoomCard key={room.roomUniqueId} room={room} />
       ))}

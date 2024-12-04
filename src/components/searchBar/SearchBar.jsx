@@ -1,10 +1,16 @@
 import React, { useContext } from "react";
 import Select from "react-select";
 import { SearchContext } from "../../context/SearchContext";
+import { useNavigate } from "react-router-dom";
 
 function SearchBar() {
   const { searchParams, setSearchParams, locationOptions, roomTypeOptions } =
     useContext(SearchContext);
+  const navigate = useNavigate();
+
+  const handleSearchClick = () => {
+    navigate("/search");
+  };
 
   return (
     <div className="search-box">
@@ -36,6 +42,10 @@ function SearchBar() {
           setSearchParams({ ...searchParams, checkOut: e.target.value })
         }
       />
+      <button className="search-button" onClick={handleSearchClick}>
+        <span>Search</span>
+        <i className="fas fa-search"></i>
+      </button>
     </div>
   );
 }
