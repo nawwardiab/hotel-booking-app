@@ -5,9 +5,9 @@
     "location": "New York City, USA",
     "ratings": 4.5,
     "photos": [
-      "public/images/hotels/deluxe-01.jpg",
-      "public/images/hotels/deluxe-02.jpg",
-      "public/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/deluxe-01.jpg",
+      "/images/hotels/deluxe-02.jpg",
+      "/images/hotels/deluxeroom-03.jpg"
     ],
     "rooms": [
       {
@@ -54,8 +54,8 @@
           "2025-01-04"
         ],
         "photos": [
-          "public/images/hotels/deluxeroom-04.jpg",
-          "public/images/hotels/deluxeroom-bedside.jpg"
+          "/images/hotels/deluxeroom-04.jpg",
+          "/images/hotels/deluxeroom-bedside.jpg"
         ]
       },
       {
@@ -96,8 +96,8 @@
           "2025-01-04"
         ],
         "photos": [
-          "public/images/hotels/deluxeroombathroom.jpg",
-          "public/images/hotels/standardroom-01.jpg"
+          "/images/hotels/deluxeroombathroom.jpg",
+          "/images/hotels/standardroom-01.jpg"
         ]
       }
     ]
@@ -108,9 +108,9 @@
     "location": "Miami Beach, USA",
     "ratings": 4.2,
     "photos": [
-      "public/images/hotels/deluxe-01.jpg",
-      "public/images/hotels/deluxe-02.jpg",
-      "public/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/deluxe-01.jpg",
+      "/images/hotels/deluxe-02.jpg",
+      "/images/hotels/deluxeroom-03.jpg"
     ],
     "rooms": [
       {
@@ -151,8 +151,8 @@
           "2025-01-04"
         ],
         "photos": [
-          "public/images/hotels/deluxeroom-04.jpg",
-          "public/images/hotels/deluxeroom-bedside.jpg"
+          "/images/hotels/deluxeroom-04.jpg",
+          "/images/hotels/deluxeroom-bedside.jpg"
         ]
       },
       {
@@ -198,8 +198,8 @@
           "2025-01-04"
         ],
         "photos": [
-          "public/images/hotels/deluxeroombathroom.jpg",
-          "public/images/hotels/standardroom-01.jpg"
+          "/images/hotels/deluxeroombathroom.jpg",
+          "/images/hotels/standardroom-01.jpg"
         ]
       }
     ]
@@ -210,9 +210,9 @@
     "location": "Aspen, USA",
     "ratings": 4.8,
     "photos": [
-      "public/images/hotels/deluxe-01.jpg",
-      "public/images/hotels/deluxe-02.jpg",
-      "public/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/deluxe-01.jpg",
+      "/images/hotels/deluxe-02.jpg",
+      "/images/hotels/deluxeroom-03.jpg"
     ],
     "rooms": [
       {
@@ -253,8 +253,8 @@
           "2025-01-04"
         ],
         "photos": [
-          "public/images/hotels/deluxeroom-04.jpg",
-          "public/images/hotels/deluxeroom-bedside.jpg"
+          "/images/hotels/deluxeroom-04.jpg",
+          "/images/hotels/deluxeroom-bedside.jpg"
         ]
       },
       {
@@ -295,8 +295,8 @@
           "2025-01-04"
         ],
         "photos": [
-          "public/images/hotels/deluxeroombathroom.jpg",
-          "public/images/hotels/standardroom-01.jpg"
+          "/images/hotels/deluxeroombathroom.jpg",
+          "/images/hotels/standardroom-01.jpg"
         ]
       }
     ]
@@ -307,9 +307,9 @@
     "location": "London, UK",
     "ratings": 4.0,
     "photos": [
-      "public/images/hotels/deluxe-01.jpg",
-      "public/images/hotels/deluxe-02.jpg",
-      "public/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/deluxe-01.jpg",
+      "/images/hotels/deluxe-02.jpg",
+      "/images/hotels/deluxeroom-03.jpg"
     ],
     "rooms": [
       {
@@ -355,8 +355,8 @@
           "2025-01-04"
         ],
         "photos": [
-          "public/images/hotels/deluxeroom-04.jpg",
-          "public/images/hotels/deluxeroom-bedside.jpg"
+          "/images/hotels/deluxeroom-04.jpg",
+          "/images/hotels/deluxeroom-bedside.jpg"
         ]
       },
       {
@@ -397,8 +397,8 @@
           "2025-01-04"
         ],
         "photos": [
-          "public/images/hotels/deluxeroombathroom.jpg",
-          "public/images/hotels/standardroom-01.jpg"
+          "/images/hotels/deluxeroombathroom.jpg",
+          "/images/hotels/standardroom-01.jpg"
         ]
       }
     ]
@@ -409,9 +409,9 @@
     "location": "Dubai, UAE",
     "ratings": 4.7,
     "photos": [
-      "public/images/hotels/deluxe-01.jpg",
-      "public/images/hotels/deluxe-02.jpg",
-      "public/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/deluxe-01.jpg",
+      "/images/hotels/deluxe-02.jpg",
+      "/images/hotels/deluxeroom-03.jpg"
     ],
     "rooms": [
       {
@@ -457,8 +457,8 @@
           "2025-01-04"
         ],
         "photos": [
-          "public/images/hotels/deluxeroom-04.jpg",
-          "public/images/hotels/deluxeroom-bedside.jpg"
+          "/images/hotels/deluxeroom-04.jpg",
+          "/images/hotels/deluxeroom-bedside.jpg"
         ]
       },
       {
@@ -499,8 +499,8 @@
           "2025-01-04"
         ],
         "photos": [
-          "public/images/hotels/deluxeroombathroom.jpg",
-          "public/images/hotels/standardroom-01.jpg"
+          "/images/hotels/deluxeroombathroom.jpg",
+          "/images/hotels/standardroom-01.jpg"
         ]
       }
     ]
