@@ -1,8 +1,14 @@
 // src/components/HotelCard.jsx
 // import "./HotelCard.css"
+import { Link } from "react-router-dom";
 
+/**
+ * Component representing a hotel card.
+ * Displays hotel information including name, rating, and available rooms.
+ * Uses hotel data from the dataset.
+ */
 const HotelCard = ({ hotel }) => {
-  const { name, ratings, rooms, photos } = hotel;
+  const { name, ratings, rooms, photos, id } = hotel;
 
   return (
     <div className="hotel-card">
@@ -18,6 +24,12 @@ const HotelCard = ({ hotel }) => {
         <h2 className="hotel-card-name">{name}</h2>
         <p className="hotel-card-rating">Rating: {ratings}/5</p>
         <p className="hotel-card-rooms">Rooms Available: {rooms.length}</p>
+        <Link to={`/hotel/${id}`} className="hotel-card-view-button">
+          View Hotel
+        </Link>
+        <Link to={`/hotel/${id}/rooms`} className="hotel-card-explore-button">
+          Explore Rooms
+        </Link>
       </div>
     </div>
   );

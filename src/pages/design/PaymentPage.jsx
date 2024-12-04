@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './PaymentPage.css';
-import PaymentMethods from '../../components/payment/PaymentMethods';
 import BookingSummary from '../../components/payment/BookingSummary';
+import PaymentMethods from '../../components/payment/PaymentMethods';
 import CreditCardForm from '../../components/payment/CreditCardForm';
 import SecurityBadges from '../../components/payment/SecurityBadges';
 
