@@ -1,19 +1,21 @@
-// src/components/RoomCard.jsx
-// import "./RoomCard.css"
+import React from "react";
 
 const RoomCard = ({ room }) => {
   const { type, pricePerNight, amenities, photos, hotelName } = room;
 
-  // const handleBookNow = () =>
-  //   navigate(`/hotels/${hotelId}/rooms/${room.type}/booking`);
+  // Add error handling for image loading
+  const handleImageError = (e) => {
+    e.target.src = "/images/placeholder.jpg";
+    console.log("Failed to load image:", photos[0]);
+  };
 
   return (
     <div className="room-card">
-      {/* Image of the room */}
       <img
         className="room-card-image"
-        src={photos[0]}
+        src={photos?.[0] || "/images/placeholder.jpg"}
         alt={`Image of ${type}`}
+        onError={handleImageError}
       />
 
       {/* Room Details */}
@@ -30,8 +32,6 @@ const RoomCard = ({ room }) => {
         </ul>
       </div>
       <button className="room-card-book-button">Book Now</button>
-
-      {/* <button onClick={handleBookNow}>Book {room.type} Now</button> */}
     </div>
   );
 };
