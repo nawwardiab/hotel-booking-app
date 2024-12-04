@@ -9,22 +9,20 @@ import ConfirmationPage from "../pages/design/ConfirmationPage";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import RoomListings from "../components/roomListings/RoomListings";
-import Booking from "../pages/Booking";
+import CreditCardForm from '../components/payment/CreditCardForm';
+import LandingPage from "../pages/design/LandingPage";
 
 const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/search" element={<RoomSearchPage />} />
         <Route path="/room/:roomId" element={<RoomDetailPage />} />
-        <Route path="/hotel" element={<HotelDetails />} />
-        <Route path="/hotel/:hotelId/rooms" element={<RoomListings />} />
         <Route path="/booking" element={<BookingPage />} />
-        <Route path="/payment" element={<PaymentPage />} />
-        <Route path="/confirmation" element={<ConfirmationPage />} />
-        <Route path="/booking/:roomId" element={<BookingPage />} />
+        <Route path="/payment" element={<CreditCardForm />} />
+        <Route path="*" element={<LandingPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
