@@ -5,6 +5,8 @@ import Booking from "../pages/Booking";
 import RoomSearchPage from "../pages/design/RoomSearchPage";
 import RoomDetailPage from "../pages/design/RoomDetailPage";
 import BookingPage from "../pages/design/BookingPage";
+import PaymentPage from "../pages/design/PaymentPage";
+import ConfirmationPage from "../pages/design/ConfirmationPage";
 
 const AppRoutes = () => {
   return (
@@ -15,6 +17,8 @@ const AppRoutes = () => {
         <Route path="/room" element={<RoomDetailPage />} />
         <Route path="/hotel" element={<HotelDetails />} />
         <Route path="/booking" element={<BookingPage />} />
+        <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/confirmation" element={<ConfirmationPage />} />
       </Routes>
     </BrowserRouter>
   );
