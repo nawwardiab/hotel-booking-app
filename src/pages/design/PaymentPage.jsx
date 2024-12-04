@@ -1,66 +1,105 @@
-import React, { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { BookingContext } from '../../context/BookingContext';
+import CreditCardForm from '../../components/payment/CreditCardForm';
+import { FaCreditCard, FaLock, FaShieldAlt } from 'react-icons/fa';
+import { SiPaypal, SiGooglepay } from 'react-icons/si';
 import './PaymentPage.css';
 import BookingSummary from '../../components/payment/BookingSummary';
-import PaymentMethods from '../../components/payment/PaymentMethods';
-import CreditCardForm from '../../components/payment/CreditCardForm';
-import SecurityBadges from '../../components/payment/SecurityBadges';
 
 const PaymentPage = () => {
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('card');
-  const [isProcessing, setIsProcessing] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
-  const bookingDetails = location.state?.bookingDetails;
+  const { bookingDetails } = useContext(BookingContext);
+  const [selectedMethod, setSelectedMethod] = useState('credit-card');
+console.log('Processing payment for:', bookingDetails);
+  const handleMethodSelect = (method) => {
+    setSelectedMethod(method);
+  };
 
-  const handlePayment = async () => {
-    setIsProcessing(true);
-    try {
-      // Simulate payment processing
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Navigate to confirmation page with booking details
-      navigate('/confirmation', {
-        state: {
-          bookingDetails,
-          bookingId: 'BOK' + Date.now()
-        }
-      });
-    } catch (error) {
-      console.error('Payment failed:', error);
-      setIsProcessing(false);
-    }
+  const handlePayment = () => {
+    
+  };
+
+  const handlePaymentSubmission = (cardData) => {
+    // Implement your payment processing logic here
+    console.log('Processing payment with card data:', cardData);
   };
 
   return (
     <div className="payment-page">
       <div className="payment-container">
-        <BookingSummary bookingDetails={bookingDetails} />
-        
-        <div className="payment-section">
-          <h2>Select Payment Method</h2>
-          <PaymentMethods 
-            selected={selectedPaymentMethod}
-            onSelect={setSelectedPaymentMethod}
-          />
-
-          <div className="payment-form">
-            {selectedPaymentMethod === 'card' && <CreditCardForm />}
-            {/* Add other payment method forms as needed */}
+        <div className="payment-content">
+          {/* <div className="booking-summary">
+            <h2>Booking Summary</h2>
+            <div className="summary-details">
+              <p><strong>Hotel:</strong> {bookingDetails?.hotelName || 'N/A'}</p>
+              <p><strong>Room Type:</strong> {bookingDetails?.roomType || 'N/A'}</p>
+              <p><strong>Check-in:</strong> {bookingDetails?.checkIn?.toLocaleDateString() || 'N/A'}</p>
+              <p><strong>Check-out:</strong> {bookingDetails?.checkOut?.toLocaleDateString() || 'N/A'}</p>
+              <div className="price-breakdown">
+                <p><strong>Room Total:</strong> ${bookingDetails?.roomTotal || 0}</p>
+                <p><strong>Taxes & Fees:</strong> ${((bookingDetails?.roomTotal || 0) * 0.1).toFixed(2)}</p>
+                <h3><strong>Total:</strong> ${((bookingDetails?.roomTotal || 0) * 1.1).toFixed(2)}</h3>
+              </div> */}
+              <BookingSummary bookingDetails={bookingDetails}/>
+            
+            {/* </div> */}
           </div>
 
-          <SecurityBadges />
+          <div className="payment-form-section">
+            <h2>Select Payment Method</h2>
+            <div className="payment-methods">
+              <button 
+                className={`method-button ${selectedMethod === 'credit-card' ? 'selected' : ''}`}
+                onClick={() => handleMethodSelect('credit-card')}
+              >
+                <FaCreditCard />
+                Credit Card
+              </button>
+              <button 
+                className={`method-button ${selectedMethod === 'paypal' ? 'selected' : ''}`}
+                onClick={() => handleMethodSelect('paypal')}
+              >
+                <SiPaypal />
+                PayPal
+              </button>
+              <button 
+                className={`method-button ${selectedMethod === 'google-pay' ? 'selected' : ''}`}
+                onClick={() => handleMethodSelect('google-pay')}
+              >
+                <SiGooglepay />
+                Google Pay
+              </button>
+            </div>
 
-          <button 
-            className="pay-now-btn"
-            onClick={handlePayment}
-            disabled={isProcessing}
-          >
-            {isProcessing ? 'Processing...' : `Pay Now - €${bookingDetails?.total || '0'}`}
-          </button>
+            {selectedMethod === 'credit-card' && (
+              <CreditCardForm onSubmit={handlePaymentSubmission} />
+            )}
+            
+            {selectedMethod === 'paypal' && (
+              <div className="paypal-section">
+                <p>You will be redirected to PayPal to complete your payment.</p>
+              </div>
+            )}
+            
+            {selectedMethod === 'google-pay' && (
+              <div className="google-pay-section">
+                <p>Complete your payment with Google Pay.</p>
+              </div>
+            )}
+
+            <button onClick={handlePayment} className="confirm-payment-button">
+              Confirm Payment
+            </button>
+
+            <div className="security-badges">
+              <FaLock />
+              <span>Secure Payment</span>
+              <FaShieldAlt />
+              <span>Protected</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 
