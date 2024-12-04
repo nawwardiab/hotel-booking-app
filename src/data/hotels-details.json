@@ -5,9 +5,9 @@
     "location": "New York City, USA",
     "ratings": 4.5,
     "photos": [
-      "public/images/hotels/deluxe-01.jpg",
-      "public/images/hotels/deluxe-02.jpg",
-      "public/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/deluxe-01.jpg",
+      "/images/hotels/deluxe-02.jpg",
+      "/images/hotels/deluxeroom-03.jpg"
     ],
     "rooms": [
       {
@@ -21,10 +21,41 @@
           "Mini Bar"
         ],
         "cancellationPolicy": "Free cancellation up to 24 hours before check-in",
-        "availability": ["2024-12-06", "2024-12-07", "2024-12-08"],
+        "availability": [
+          "2024-12-06",
+          "2024-12-07",
+          "2024-12-08",
+          "2024-12-09",
+          "2024-12-10",
+          "2024-12-11",
+          "2024-12-12",
+          "2024-12-13",
+          "2024-12-14",
+          "2024-12-15",
+          "2024-12-16",
+          "2024-12-17",
+          "2024-12-18",
+          "2024-12-19",
+          "2024-12-20",
+          "2024-12-21",
+          "2024-12-22",
+          "2024-12-23",
+          "2024-12-24",
+          "2024-12-25",
+          "2024-12-26",
+          "2024-12-27",
+          "2024-12-28",
+          "2024-12-29",
+          "2024-12-30",
+          "2024-12-31",
+          "2025-01-01",
+          "2025-01-02",
+          "2025-01-03",
+          "2025-01-04"
+        ],
         "photos": [
-          "public/images/hotels/deluxeroom-04.jpg",
-          "public/images/hotels/deluxeroom-bedside.jpg"
+          "/images/hotels/deluxeroom-04.jpg",
+          "/images/hotels/deluxeroom-bedside.jpg"
         ]
       },
       {
@@ -32,10 +63,41 @@
         "pricePerNight": 150,
         "amenities": ["Queen Bed", "Free WiFi", "Breakfast Included"],
         "cancellationPolicy": "Free cancellation up to 48 hours before check-in",
-        "availability": ["2024-12-06", "2024-12-09", "2024-12-10"],
+        "availability": [
+          "2024-12-06",
+          "2024-12-07",
+          "2024-12-08",
+          "2024-12-09",
+          "2024-12-10",
+          "2024-12-11",
+          "2024-12-12",
+          "2024-12-13",
+          "2024-12-14",
+          "2024-12-15",
+          "2024-12-16",
+          "2024-12-17",
+          "2024-12-18",
+          "2024-12-19",
+          "2024-12-20",
+          "2024-12-21",
+          "2024-12-22",
+          "2024-12-23",
+          "2024-12-24",
+          "2024-12-25",
+          "2024-12-26",
+          "2024-12-27",
+          "2024-12-28",
+          "2024-12-29",
+          "2024-12-30",
+          "2024-12-31",
+          "2025-01-01",
+          "2025-01-02",
+          "2025-01-03",
+          "2025-01-04"
+        ],
         "photos": [
-          "public/images/hotels/deluxeroombathroom.jpg",
-          "public/images/hotels/standardroom-01.jpg"
+          "/images/hotels/deluxeroombathroom.jpg",
+          "/images/hotels/standardroom-01.jpg"
         ]
       }
     ]
@@ -46,9 +108,9 @@
     "location": "Miami Beach, USA",
     "ratings": 4.2,
     "photos": [
-      "public/images/hotels/deluxe-01.jpg",
-      "public/images/hotels/deluxe-02.jpg",
-      "public/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/deluxe-01.jpg",
+      "/images/hotels/deluxe-02.jpg",
+      "/images/hotels/deluxeroom-03.jpg"
     ],
     "rooms": [
       {
@@ -56,10 +118,41 @@
         "pricePerNight": 220,
         "amenities": ["Queen Bed", "Ocean View", "Balcony", "Free WiFi"],
         "cancellationPolicy": "Non-refundable",
-        "availability": ["2024-12-10", "2024-12-11", "2024-12-12"],
+        "availability": [
+          "2024-12-06",
+          "2024-12-07",
+          "2024-12-08",
+          "2024-12-09",
+          "2024-12-10",
+          "2024-12-11",
+          "2024-12-12",
+          "2024-12-13",
+          "2024-12-14",
+          "2024-12-15",
+          "2024-12-16",
+          "2024-12-17",
+          "2024-12-18",
+          "2024-12-19",
+          "2024-12-20",
+          "2024-12-21",
+          "2024-12-22",
+          "2024-12-23",
+          "2024-12-24",
+          "2024-12-25",
+          "2024-12-26",
+          "2024-12-27",
+          "2024-12-28",
+          "2024-12-29",
+          "2024-12-30",
+          "2024-12-31",
+          "2025-01-01",
+          "2025-01-02",
+          "2025-01-03",
+          "2025-01-04"
+        ],
         "photos": [
-          "public/images/hotels/deluxeroom-04.jpg",
-          "public/images/hotels/deluxeroom-bedside.jpg"
+          "/images/hotels/deluxeroom-04.jpg",
+          "/images/hotels/deluxeroom-bedside.jpg"
         ]
       },
       {
@@ -72,10 +165,41 @@
           "Breakfast Included"
         ],
         "cancellationPolicy": "Free cancellation up to 72 hours before check-in",
-        "availability": ["2024-12-08", "2024-12-09", "2024-12-15"],
+        "availability": [
+          "2024-12-06",
+          "2024-12-07",
+          "2024-12-08",
+          "2024-12-09",
+          "2024-12-10",
+          "2024-12-11",
+          "2024-12-12",
+          "2024-12-13",
+          "2024-12-14",
+          "2024-12-15",
+          "2024-12-16",
+          "2024-12-17",
+          "2024-12-18",
+          "2024-12-19",
+          "2024-12-20",
+          "2024-12-21",
+          "2024-12-22",
+          "2024-12-23",
+          "2024-12-24",
+          "2024-12-25",
+          "2024-12-26",
+          "2024-12-27",
+          "2024-12-28",
+          "2024-12-29",
+          "2024-12-30",
+          "2024-12-31",
+          "2025-01-01",
+          "2025-01-02",
+          "2025-01-03",
+          "2025-01-04"
+        ],
         "photos": [
-          "public/images/hotels/deluxeroombathroom.jpg",
-          "public/images/hotels/standardroom-01.jpg"
+          "/images/hotels/deluxeroombathroom.jpg",
+          "/images/hotels/standardroom-01.jpg"
         ]
       }
     ]
@@ -86,9 +210,9 @@
     "location": "Aspen, USA",
     "ratings": 4.8,
     "photos": [
-      "public/images/hotels/deluxe-01.jpg",
-      "public/images/hotels/deluxe-02.jpg",
-      "public/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/deluxe-01.jpg",
+      "/images/hotels/deluxe-02.jpg",
+      "/images/hotels/deluxeroom-03.jpg"
     ],
     "rooms": [
       {
@@ -96,10 +220,41 @@
         "pricePerNight": 280,
         "amenities": ["King Bed", "Fireplace", "Mountain View", "Hot Tub"],
         "cancellationPolicy": "Free cancellation up to 48 hours before check-in",
-        "availability": ["2024-12-15", "2024-12-16", "2024-12-17"],
+        "availability": [
+          "2024-12-06",
+          "2024-12-07",
+          "2024-12-08",
+          "2024-12-09",
+          "2024-12-10",
+          "2024-12-11",
+          "2024-12-12",
+          "2024-12-13",
+          "2024-12-14",
+          "2024-12-15",
+          "2024-12-16",
+          "2024-12-17",
+          "2024-12-18",
+          "2024-12-19",
+          "2024-12-20",
+          "2024-12-21",
+          "2024-12-22",
+          "2024-12-23",
+          "2024-12-24",
+          "2024-12-25",
+          "2024-12-26",
+          "2024-12-27",
+          "2024-12-28",
+          "2024-12-29",
+          "2024-12-30",
+          "2024-12-31",
+          "2025-01-01",
+          "2025-01-02",
+          "2025-01-03",
+          "2025-01-04"
+        ],
         "photos": [
-          "public/images/hotels/deluxeroom-04.jpg",
-          "public/images/hotels/deluxeroom-bedside.jpg"
+          "/images/hotels/deluxeroom-04.jpg",
+          "/images/hotels/deluxeroom-bedside.jpg"
         ]
       },
       {
@@ -107,10 +262,41 @@
         "pricePerNight": 130,
         "amenities": ["Queen Bed", "Free WiFi", "Breakfast Included"],
         "cancellationPolicy": "Non-refundable",
-        "availability": ["2024-12-14", "2024-12-15", "2024-12-18"],
+        "availability": [
+          "2024-12-06",
+          "2024-12-07",
+          "2024-12-08",
+          "2024-12-09",
+          "2024-12-10",
+          "2024-12-11",
+          "2024-12-12",
+          "2024-12-13",
+          "2024-12-14",
+          "2024-12-15",
+          "2024-12-16",
+          "2024-12-17",
+          "2024-12-18",
+          "2024-12-19",
+          "2024-12-20",
+          "2024-12-21",
+          "2024-12-22",
+          "2024-12-23",
+          "2024-12-24",
+          "2024-12-25",
+          "2024-12-26",
+          "2024-12-27",
+          "2024-12-28",
+          "2024-12-29",
+          "2024-12-30",
+          "2024-12-31",
+          "2025-01-01",
+          "2025-01-02",
+          "2025-01-03",
+          "2025-01-04"
+        ],
         "photos": [
-          "public/images/hotels/deluxeroombathroom.jpg",
-          "public/images/hotels/standardroom-01.jpg"
+          "/images/hotels/deluxeroombathroom.jpg",
+          "/images/hotels/standardroom-01.jpg"
         ]
       }
     ]
@@ -121,9 +307,9 @@
     "location": "London, UK",
     "ratings": 4.0,
     "photos": [
-      "public/images/hotels/deluxe-01.jpg",
-      "public/images/hotels/deluxe-02.jpg",
-      "public/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/deluxe-01.jpg",
+      "/images/hotels/deluxe-02.jpg",
+      "/images/hotels/deluxeroom-03.jpg"
     ],
     "rooms": [
       {
@@ -136,10 +322,41 @@
           "Breakfast Included"
         ],
         "cancellationPolicy": "Free cancellation up to 24 hours before check-in",
-        "availability": ["2024-12-20", "2024-12-21", "2024-12-22"],
+        "availability": [
+          "2024-12-06",
+          "2024-12-07",
+          "2024-12-08",
+          "2024-12-09",
+          "2024-12-10",
+          "2024-12-11",
+          "2024-12-12",
+          "2024-12-13",
+          "2024-12-14",
+          "2024-12-15",
+          "2024-12-16",
+          "2024-12-17",
+          "2024-12-18",
+          "2024-12-19",
+          "2024-12-20",
+          "2024-12-21",
+          "2024-12-22",
+          "2024-12-23",
+          "2024-12-24",
+          "2024-12-25",
+          "2024-12-26",
+          "2024-12-27",
+          "2024-12-28",
+          "2024-12-29",
+          "2024-12-30",
+          "2024-12-31",
+          "2025-01-01",
+          "2025-01-02",
+          "2025-01-03",
+          "2025-01-04"
+        ],
         "photos": [
-          "public/images/hotels/deluxeroom-04.jpg",
-          "public/images/hotels/deluxeroom-bedside.jpg"
+          "/images/hotels/deluxeroom-04.jpg",
+          "/images/hotels/deluxeroom-bedside.jpg"
         ]
       },
       {
@@ -147,10 +364,41 @@
         "pricePerNight": 100,
         "amenities": ["Twin Bed", "Free WiFi"],
         "cancellationPolicy": "Non-refundable",
-        "availability": ["2024-12-18", "2024-12-19", "2024-12-20"],
+        "availability": [
+          "2024-12-06",
+          "2024-12-07",
+          "2024-12-08",
+          "2024-12-09",
+          "2024-12-10",
+          "2024-12-11",
+          "2024-12-12",
+          "2024-12-13",
+          "2024-12-14",
+          "2024-12-15",
+          "2024-12-16",
+          "2024-12-17",
+          "2024-12-18",
+          "2024-12-19",
+          "2024-12-20",
+          "2024-12-21",
+          "2024-12-22",
+          "2024-12-23",
+          "2024-12-24",
+          "2024-12-25",
+          "2024-12-26",
+          "2024-12-27",
+          "2024-12-28",
+          "2024-12-29",
+          "2024-12-30",
+          "2024-12-31",
+          "2025-01-01",
+          "2025-01-02",
+          "2025-01-03",
+          "2025-01-04"
+        ],
         "photos": [
-          "public/images/hotels/deluxeroombathroom.jpg",
-          "public/images/hotels/standardroom-01.jpg"
+          "/images/hotels/deluxeroombathroom.jpg",
+          "/images/hotels/standardroom-01.jpg"
         ]
       }
     ]
@@ -161,9 +409,9 @@
     "location": "Dubai, UAE",
     "ratings": 4.7,
     "photos": [
-      "public/images/hotels/deluxe-01.jpg",
-      "public/images/hotels/deluxe-02.jpg",
-      "public/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/deluxe-01.jpg",
+      "/images/hotels/deluxe-02.jpg",
+      "/images/hotels/deluxeroom-03.jpg"
     ],
     "rooms": [
       {
@@ -176,10 +424,41 @@
           "Butler Service"
         ],
         "cancellationPolicy": "Free cancellation up to 72 hours before check-in",
-        "availability": ["2024-12-25", "2024-12-26", "2024-12-27"],
+        "availability": [
+          "2024-12-06",
+          "2024-12-07",
+          "2024-12-08",
+          "2024-12-09",
+          "2024-12-10",
+          "2024-12-11",
+          "2024-12-12",
+          "2024-12-13",
+          "2024-12-14",
+          "2024-12-15",
+          "2024-12-16",
+          "2024-12-17",
+          "2024-12-18",
+          "2024-12-19",
+          "2024-12-20",
+          "2024-12-21",
+          "2024-12-22",
+          "2024-12-23",
+          "2024-12-24",
+          "2024-12-25",
+          "2024-12-26",
+          "2024-12-27",
+          "2024-12-28",
+          "2024-12-29",
+          "2024-12-30",
+          "2024-12-31",
+          "2025-01-01",
+          "2025-01-02",
+          "2025-01-03",
+          "2025-01-04"
+        ],
         "photos": [
-          "public/images/hotels/deluxeroom-04.jpg",
-          "public/images/hotels/deluxeroom-bedside.jpg"
+          "/images/hotels/deluxeroom-04.jpg",
+          "/images/hotels/deluxeroom-bedside.jpg"
         ]
       },
       {
@@ -187,10 +466,41 @@
         "pricePerNight": 180,
         "amenities": ["Queen Bed", "Free WiFi", "Breakfast Included"],
         "cancellationPolicy": "Non-refundable",
-        "availability": ["2024-12-24", "2024-12-25", "2024-12-28"],
+        "availability": [
+          "2024-12-06",
+          "2024-12-07",
+          "2024-12-08",
+          "2024-12-09",
+          "2024-12-10",
+          "2024-12-11",
+          "2024-12-12",
+          "2024-12-13",
+          "2024-12-14",
+          "2024-12-15",
+          "2024-12-16",
+          "2024-12-17",
+          "2024-12-18",
+          "2024-12-19",
+          "2024-12-20",
+          "2024-12-21",
+          "2024-12-22",
+          "2024-12-23",
+          "2024-12-24",
+          "2024-12-25",
+          "2024-12-26",
+          "2024-12-27",
+          "2024-12-28",
+          "2024-12-29",
+          "2024-12-30",
+          "2024-12-31",
+          "2025-01-01",
+          "2025-01-02",
+          "2025-01-03",
+          "2025-01-04"
+        ],
         "photos": [
-          "public/images/hotels/deluxeroombathroom.jpg",
-          "public/images/hotels/standardroom-01.jpg"
+          "/images/hotels/deluxeroombathroom.jpg",
+          "/images/hotels/standardroom-01.jpg"
         ]
       }
     ]

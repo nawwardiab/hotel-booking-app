@@ -1,6 +1,6 @@
 // src/components/HotelCard.jsx
-// import "./HotelCard.css"
 import { Link } from "react-router-dom";
+import "./HotelCard.css"
 
 /**
  * Component representing a hotel card.

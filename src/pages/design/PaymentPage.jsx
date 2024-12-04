@@ -4,17 +4,18 @@ import CreditCardForm from '../../components/payment/CreditCardForm';
 import { FaCreditCard, FaLock, FaShieldAlt } from 'react-icons/fa';
 import { SiPaypal, SiGooglepay } from 'react-icons/si';
 import './PaymentPage.css';
+import BookingSummary from '../../components/payment/BookingSummary';
 
 const PaymentPage = () => {
   const { bookingDetails } = useContext(BookingContext);
   const [selectedMethod, setSelectedMethod] = useState('credit-card');
-
+console.log('Processing payment for:', bookingDetails);
   const handleMethodSelect = (method) => {
     setSelectedMethod(method);
   };
 
   const handlePayment = () => {
-    console.log('Processing payment for:', bookingDetails);
+    
   };
 
   const handlePaymentSubmission = (cardData) => {
@@ -26,7 +27,7 @@ const PaymentPage = () => {
     <div className="payment-page">
       <div className="payment-container">
         <div className="payment-content">
-          <div className="booking-summary">
+          {/* <div className="booking-summary">
             <h2>Booking Summary</h2>
             <div className="summary-details">
               <p><strong>Hotel:</strong> {bookingDetails?.hotelName || 'N/A'}</p>
@@ -37,8 +38,10 @@ const PaymentPage = () => {
                 <p><strong>Room Total:</strong> ${bookingDetails?.roomTotal || 0}</p>
                 <p><strong>Taxes & Fees:</strong> ${((bookingDetails?.roomTotal || 0) * 0.1).toFixed(2)}</p>
                 <h3><strong>Total:</strong> ${((bookingDetails?.roomTotal || 0) * 1.1).toFixed(2)}</h3>
-              </div>
-            </div>
+              </div> */}
+              <BookingSummary bookingDetails={bookingDetails}/>
+            
+            {/* </div> */}
           </div>
 
           <div className="payment-form-section">
@@ -96,7 +99,7 @@ const PaymentPage = () => {
           </div>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 

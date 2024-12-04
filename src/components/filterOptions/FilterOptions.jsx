@@ -73,6 +73,20 @@ const FilterOptions = () => {
     ),
   ].sort();
 
+  const handlePriceChange = ([min, max]) => {
+    setSearchParams((prev) => ({
+      ...prev,
+      priceRange: [min, max],
+    }));
+  };
+
+  const handleRatingChange = (rating) => {
+    setSearchParams((prev) => ({
+      ...prev,
+      ratings: rating,
+    }));
+  };
+
   return (
     <aside className="filters">
       <h3>Refine your search</h3>
@@ -89,7 +103,11 @@ const FilterOptions = () => {
             max="500"
             step="10"
             value={budget[1]}
-            onChange={(e) => setBudget([budget[0], parseInt(e.target.value)])}
+            onChange={(e) => {
+              const newMax = parseInt(e.target.value);
+              setBudget([budget[0], newMax]);
+              handlePriceChange([budget[0], newMax]);
+            }}
             className="slider"
           />
         </div>
@@ -104,7 +122,11 @@ const FilterOptions = () => {
             max="5"
             step="0.5"
             value={rating}
-            onChange={(e) => setRating(Number(e.target.value))}
+            onChange={(e) => {
+              const newRating = Number(e.target.value);
+              setRating(newRating);
+              handleRatingChange(newRating);
+            }}
           />
         </div>
 

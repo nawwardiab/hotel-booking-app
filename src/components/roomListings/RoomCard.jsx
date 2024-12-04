@@ -5,6 +5,10 @@ import { BookingContext } from '../../context/BookingContext';
 import './RoomCard.css';
 
 const RoomCard = ({ room, hotel }) => {
+  if (!hotel) {
+    return null;
+  }
+
   const { updateBookingDetails } = useContext(BookingContext);
   const navigate = useNavigate();
 
@@ -43,11 +47,11 @@ const RoomCard = ({ room, hotel }) => {
         src={photos?.[0] || './images/room-placeholder.jpg'}
         alt={type}
       />
-      <p>Rating: {hotel.ratings} ⭐</p>
+      <p>Rating: {hotel?.ratings || 'N/A'} ⭐</p>
       <h3 className="room-card-title">
-        {type} - {hotel.name}
+        {type} - {hotel?.name}
       </h3>
-      <p>{hotel.location}</p>
+      <p>{hotel?.location}</p>
       <p className="room-card-price">${pricePerNight} per night</p>
       <ul className="room-card-features">
         {amenities.slice(0, 3).map((feature, index) => (
