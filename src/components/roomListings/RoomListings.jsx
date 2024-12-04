@@ -1,21 +1,27 @@
 // src/components/RoomListings.jsx
-import hotels from "../../data/hotels-details.json";
+import React, { useContext } from "react";
+import { SearchContext } from "../../context/SearchContext";
 import RoomCard from "./RoomCard";
 import "./RoomCard";
+import "./RoomListings.css";
 
 const RoomListings = () => {
-  const allRooms = hotels.flatMap((hotel) =>
-    hotel.rooms.map((room) => ({
+  const { filteredHotels } = useContext(SearchContext);
+
+  const allRooms = filteredHotels.flatMap((hotel) =>
+    hotel.rooms.map((room, index) => ({
       ...room,
       hotelName: hotel.name,
       hotelId: hotel.id,
+      ratings: hotel.ratings,
+      roomUniqueId: `${hotel.id}-${index}`,
     }))
   );
 
   return (
-    <div className="room-listings">
-      {allRooms.map((room, index) => (
-        <RoomCard key={index} room={room} />
+    <div className="rooms-grid">
+      {allRooms.map((room) => (
+        <RoomCard key={room.roomUniqueId} room={room} />
       ))}
     </div>
   );
