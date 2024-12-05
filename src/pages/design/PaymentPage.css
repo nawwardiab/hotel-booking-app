@@ -1,19 +1,30 @@
 .payment-page {
   padding: 2rem;
-  max-width: 100vw;
+  max-width: 1200px;
   margin: 0 auto;
+  background: linear-gradient(rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.05));
+  color: aliceblue;
 }
 
 .payment-container {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
 }
 
 .payment-method-cont {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+}
+
+.payment-method-cont h2 {
+padding: 0;
 }
 
 .method-button {
@@ -23,7 +34,7 @@
   padding: 1rem;
   border: 1px solid #ddd;
   border-radius: 8px;
-  background: #777;
+  background: #999999;
   cursor: pointer;
 }
 
