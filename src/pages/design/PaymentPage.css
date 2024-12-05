@@ -1,5 +1,4 @@
 .payment-page {
-  padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
   background: linear-gradient(rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.05));
@@ -16,15 +15,15 @@
 
 .payment-method-cont {
   display: flex;
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
   padding: 0.5rem;
   background: rgba(255, 255, 255, 0.03);
   border-radius: 12px;
 }
 
 .payment-method-cont h2 {
-padding: 0;
+  padding: 0;
 }
 
 .method-button {

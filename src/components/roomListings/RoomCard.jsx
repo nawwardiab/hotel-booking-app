@@ -1,8 +1,7 @@
-// src/components/RoomCard.jsx
-import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { BookingContext } from '../../context/BookingContext';
-import './RoomCard.css';
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { BookingContext } from "../../context/BookingContext";
+import "./RoomCard.css";
 
 const RoomCard = ({ room, hotel }) => {
   if (!hotel) {
@@ -12,13 +11,12 @@ const RoomCard = ({ room, hotel }) => {
   const { updateBookingDetails } = useContext(BookingContext);
   const navigate = useNavigate();
 
-  const {
-    type,
-    pricePerNight,
-    amenities,
-    roomUniqueId,
-    photos
-  } = room;
+  const { type, pricePerNight, amenities, id, photos } = room;
+  const roomUniqueId = id || room.roomUniqueId || room.id || room.uniqueId;
+
+  console.log("Room Object:", room);
+  console.log("Room Unique ID (updated):", roomUniqueId);
+  console.log("Room ID:", id);
 
   const handleBookingData = (destination) => {
     // Common function to handle booking data for both buttons
@@ -36,18 +34,15 @@ const RoomCard = ({ room, hotel }) => {
       serviceFee: 0,
       additionalGuestFee: 0,
       childrenFee: 0,
-      nights: 0
+      nights: 0,
     });
     navigate(destination);
   };
 
   return (
     <div className="room-card">
-      <img
-        src={photos?.[0] || './images/room-placeholder.jpg'}
-        alt={type}
-      />
-      <p>Rating: {hotel?.ratings || 'N/A'} ⭐</p>
+      <img src={photos?.[0] || "./images/room-placeholder.jpg"} alt={type} />
+      <p>Rating: {hotel?.ratings || "N/A"} ⭐</p>
       <h3 className="room-card-title">
         {type} - {hotel?.name}
       </h3>
@@ -59,14 +54,14 @@ const RoomCard = ({ room, hotel }) => {
         ))}
         {amenities.length > 3 && <li>+ more...</li>}
       </ul>
-      <button 
+      <button
         onClick={() => handleBookingData(`/room/${roomUniqueId}`)}
         className="room-card-book-button"
       >
         View Details
       </button>
-      <button 
-        onClick={() => handleBookingData('/booking')}
+      <button
+        onClick={() => handleBookingData("/booking")}
         className="room-card-book-button"
       >
         Book Now

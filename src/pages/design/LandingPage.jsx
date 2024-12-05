@@ -16,9 +16,7 @@ const LandingPage = () => {
       <header className="hero-section">
         <h1>Discover your perfect room on StayEasy</h1>
         <p>Find your ideal room among thousands available!</p>
-        <div className="search-container">
-          <SearchBar />
-        </div>
+        <SearchBar />
       </header>
 
       <section className="explore-section">

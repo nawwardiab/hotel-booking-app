@@ -88,16 +88,16 @@ const PaymentPage = () => {
             </div>
           )}
 
-          <button onClick={handlePayment} className="confirm-payment-button">
+          {/* <button onClick={handlePayment} className="confirm-payment-button">
             Confirm Payment
-          </button>
+          </button> */}
 
-          <div className="security-badges">
+          {/* <div className="security-badges">
             <FaLock />
             <span>Secure Payment</span>
             <FaShieldAlt />
             <span>Protected</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
