@@ -54,8 +54,11 @@ const RoomSearchPage = () => {
           {/* Pagination */}
           <div className="pagination">
             <button>&lt;</button>
-            {[1, 2, 3, "…", 20].map((page, index) => (
-              <button key={index} className="page-btn">
+            {[1, 2, 3, "…", 20].map((page) => (
+              <button
+                key={`page-${page}`}
+                className="page-btn"
+              >
                 {page}
               </button>
             ))}

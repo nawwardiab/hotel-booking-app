@@ -108,9 +108,9 @@
     "location": "Miami Beach, USA",
     "ratings": 4.2,
     "photos": [
-      "/images/hotels/deluxe-01.jpg",
-      "/images/hotels/deluxe-02.jpg",
-      "/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/seasideresort.jpg",
+      "/images/hotels/longuevillejuniorsuite-02.jpg",
+      "/images/hotels/pascalijuniorsuite-01.jpg"
     ],
     "rooms": [
       {
@@ -151,8 +151,8 @@
           "2025-01-04"
         ],
         "photos": [
-          "/images/hotels/deluxeroom-04.jpg",
-          "/images/hotels/deluxeroom-bedside.jpg"
+          "/images/hotels/premiumocean-05.jpg",
+          "/images/hotels/longuevillejuniorsuite-03.jpg"
         ]
       },
       {
@@ -198,8 +198,8 @@
           "2025-01-04"
         ],
         "photos": [
-          "/images/hotels/deluxeroombathroom.jpg",
-          "/images/hotels/standardroom-01.jpg"
+          "/images/hotels/premiumocean-04.jpg",
+          "/images/hotels/premiumocean-03.jpg"
         ]
       }
     ]
