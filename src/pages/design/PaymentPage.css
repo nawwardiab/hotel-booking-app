@@ -1,19 +1,29 @@
 .payment-page {
-  padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  background: linear-gradient(rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.05));
+  color: aliceblue;
 }
 
 .payment-container {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
 }
 
-.payment-methods {
+.payment-method-cont {
   display: flex;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+}
+
+.payment-method-cont h2 {
+  padding: 0;
 }
 
 .method-button {
@@ -23,16 +33,16 @@
   padding: 1rem;
   border: 1px solid #ddd;
   border-radius: 8px;
-  background: white;
+  background: #999999;
   cursor: pointer;
 }
 
 .method-button.selected {
   border-color: #007bff;
-  background: #f0f7ff;
+  background: #333;
 }
 
-.pay-now-btn {
+/* .pay-button {
   width: 100%;
   padding: 1rem;
   background: #007bff;
@@ -42,7 +52,7 @@
   font-size: 1.1rem;
   cursor: pointer;
   margin-top: 2rem;
-}
+} */
 
 .security-badges {
   display: flex;
@@ -50,7 +60,7 @@
   gap: 2rem;
   margin-top: 2rem;
   padding: 1rem;
-  background: #f8f9fa;
+  background: #333;
   border-radius: 8px;
 }
 
@@ -58,6 +68,11 @@
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 1rem;
+  display: flex;
+  /* grid-template-columns: 1fr 1.5fr; */
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
 }
 
 .payment-content {
@@ -66,12 +81,9 @@
   gap: 2rem;
 }
 
-.booking-summary {
-  background: #f8f9fa;
-  padding: 2rem;
-  border-radius: 8px;
-  height: fit-content;
-}
+/* .booking-summary {
+
+} */
 
 .summary-details {
   display: flex;
@@ -91,10 +103,15 @@
 }
 
 .payment-form-section {
-  background: white;
+  background: #222429;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
 }
 
 .payment-form-section h2 {
@@ -122,4 +139,4 @@
   .payment-content {
     grid-template-columns: 1fr;
   }
-} 
+}

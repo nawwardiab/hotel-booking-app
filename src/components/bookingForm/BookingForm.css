@@ -1,56 +1,76 @@
-.main-content {
+.main-booking {
   display: flex;
-  gap: 2rem;
-  padding: 2rem;
-  max-width: 1200px;
+  gap: 2.5rem;
+  padding: 3rem;
+  max-width: 1400px;
   margin: 0 auto;
+  background: linear-gradient(rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.05));
+  color: aliceblue;
 }
 
 .form-section {
   flex: 2;
+  animation: fadeIn 0.6s ease-in;
 }
 
 .summary-section {
   flex: 1;
-  background-color: #f8f9fa;
-  padding: 2rem;
-  border-radius: 8px;
+  background: #2a2b2f;
+  padding: 2.5rem;
+  border-radius: 12px;
   position: sticky;
   top: 2rem;
   height: fit-content;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .form-card {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 8px;
+  background-color: rgba(65, 65, 65, 0.5);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  padding: 2.5rem;
   margin-bottom: 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 .form-card h2 {
   margin-bottom: 1.5rem;
-  color: #333;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
+  color: #e1e2e5;
 }
 
 .form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: #666;
+  color: #e1e2e5;
   font-weight: 500;
 }
 
-input, select {
+input,
+select {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 0.9rem;
+  border: 2px solid #3a3b3f;
+  border-radius: 8px;
   margin-bottom: 1rem;
   font-size: 1rem;
+  transition: all 0.2s ease;
+  background: #23242a;
+  color: #e1e2e5;
+}
+
+input:focus,
+select:focus {
+  border-color: #4d9fff;
+  box-shadow: 0 0 0 3px rgba(77, 159, 255, 0.15);
+  outline: none;
 }
 
 .phone-input-group {
@@ -68,54 +88,53 @@ input, select {
 
 .confirm-btn {
   width: 100%;
-  padding: 1rem;
-  background-color: #007bff;
+  padding: 1.2rem;
+  background: linear-gradient(45deg, #2563eb, #8abdfc);
   color: white;
   border: none;
-  border-radius: 4px;
-  font-size: 1rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(77, 159, 255, 0.2);
 }
 
 .confirm-btn:hover {
-  background-color: #0056b3;
+  background: linear-gradient(135deg, #2d7fff, #1a6fff);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(77, 159, 255, 0.25);
 }
 
 .cost-breakdown {
   margin: 2rem 0;
   padding-top: 1rem;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #3a3b3f;
 }
 
 .cost-breakdown p {
-  margin: 0.5rem 0;
-  color: #666;
+  color: #b4b6ba;
 }
 
 .cost-breakdown h3 {
   margin-top: 1rem;
-  color: #007bff;
+  color: #4d9fff;
 }
 
 .summary-section h2 {
-  font-size: 1.1rem;
-  color: #333;
-  margin: 1rem 0 0.5rem;
+  color: #e1e2e5;
 }
 
 .summary-section p {
-  color: #666;
-  margin-bottom: 1rem;
+  color: #b4b6ba;
 }
 
 .family-member {
-  position: relative;
-  padding: 1rem;
-  background-color: #f8f9fa;
+  background-color: #23242a;
   border-radius: 8px;
+  padding: 1rem;
   margin-bottom: 1rem;
+  animation: slideIn 0.3s ease-out;
 }
 
 .family-member-header {
@@ -128,7 +147,7 @@ input, select {
 .remove-member-btn {
   background: none;
   border: none;
-  color: #dc3545;
+  color: #ff4d4d;
   font-size: 1.2rem;
   cursor: pointer;
   padding: 0.2rem 0.5rem;
@@ -136,15 +155,15 @@ input, select {
 }
 
 .remove-member-btn:hover {
-  background-color: #ffebee;
+  background-color: rgba(255, 77, 77, 0.1);
 }
 
 .add-member-btn {
   width: 100%;
   padding: 0.75rem;
-  background-color: #e9ecef;
-  border: 2px dashed #adb5bd;
-  color: #495057;
+  background-color: #23242a;
+  border: 2px dashed #3a3b3f;
+  color: #b4b6ba;
   border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
@@ -153,9 +172,9 @@ input, select {
 }
 
 .add-member-btn:hover {
-  background-color: #dee2e6;
-  border-color: #6c757d;
-  color: #212529;
+  background-color: #2a2b2f;
+  border-color: #4d9fff;
+  color: #e1e2e5;
 }
 
 .booking-details-column {
@@ -173,12 +192,11 @@ input, select {
 
 .summary-label {
   font-weight: 600;
-  color: #666;
+  color: #e1e2e5;
 }
 
 .summary-value {
-  color: #333;
-  font-size: 1.1rem;
+  color: #e1e2e5;
 }
 
 .date-picker {
@@ -189,17 +207,18 @@ input, select {
 .date-picker input {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #ddd;
+  border: 1px solid #3a3b3f;
   border-radius: 4px;
   font-size: 1rem;
   cursor: pointer;
-  background: white;
+  background: #23242a;
+  color: #e1e2e5;
 }
 
 .date-picker input:focus {
   outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+  border-color: #4d9fff;
+  box-shadow: 0 0 0 2px rgba(77, 159, 255, 0.25);
 }
 
 .calendar-popup {
@@ -208,4 +227,26 @@ input, select {
   left: 0;
   z-index: 1000;
   margin-top: 0.5rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

@@ -12,6 +12,7 @@
     "rooms": [
       {
         "type": "Deluxe Suite",
+        "id": "deluxe-suite-1",
         "pricePerNight": 250,
         "amenities": [
           "King Bed",
@@ -60,6 +61,7 @@
       },
       {
         "type": "Standard Room",
+        "id": "standard-room-1",
         "pricePerNight": 150,
         "amenities": ["Queen Bed", "Free WiFi", "Breakfast Included"],
         "cancellationPolicy": "Free cancellation up to 48 hours before check-in",
@@ -108,13 +110,14 @@
     "location": "Miami Beach, USA",
     "ratings": 4.2,
     "photos": [
-      "/images/hotels/deluxe-01.jpg",
-      "/images/hotels/deluxe-02.jpg",
-      "/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/seasideresort.jpg",
+      "/images/hotels/longuevillejuniorsuite-02.jpg",
+      "/images/hotels/pascalijuniorsuite-01.jpg"
     ],
     "rooms": [
       {
         "type": "Ocean View Room",
+        "id": "ocean-view-1",
         "pricePerNight": 220,
         "amenities": ["Queen Bed", "Ocean View", "Balcony", "Free WiFi"],
         "cancellationPolicy": "Non-refundable",
@@ -151,12 +154,13 @@
           "2025-01-04"
         ],
         "photos": [
-          "/images/hotels/deluxeroom-04.jpg",
-          "/images/hotels/deluxeroom-bedside.jpg"
+          "/images/hotels/premiumocean-05.jpg",
+          "/images/hotels/longuevillejuniorsuite-03.jpg"
         ]
       },
       {
         "type": "Family Suite",
+        "id": "family-suite-1",
         "pricePerNight": 350,
         "amenities": [
           "Two Queen Beds",
@@ -198,8 +202,8 @@
           "2025-01-04"
         ],
         "photos": [
-          "/images/hotels/deluxeroombathroom.jpg",
-          "/images/hotels/standardroom-01.jpg"
+          "/images/hotels/premiumocean-04.jpg",
+          "/images/hotels/premiumocean-03.jpg"
         ]
       }
     ]
@@ -210,13 +214,14 @@
     "location": "Aspen, USA",
     "ratings": 4.8,
     "photos": [
-      "/images/hotels/deluxe-01.jpg",
-      "/images/hotels/deluxe-02.jpg",
-      "/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/hotelroom-03.jpg",
+      "/images/hotels/hotelroom-04.jpg",
+      "/images/hotels/hotelroom-01.jpg"
     ],
     "rooms": [
       {
         "type": "Cabin Suite",
+        "id": "cabin-suite-1",
         "pricePerNight": 280,
         "amenities": ["King Bed", "Fireplace", "Mountain View", "Hot Tub"],
         "cancellationPolicy": "Free cancellation up to 48 hours before check-in",
@@ -253,12 +258,13 @@
           "2025-01-04"
         ],
         "photos": [
-          "/images/hotels/deluxeroom-04.jpg",
-          "/images/hotels/deluxeroom-bedside.jpg"
+          "/images/hotels/hotelroom-02.jpg",
+          "/images/hotels/hotelroom-05.jpg"
         ]
       },
       {
         "type": "Standard Room",
+        "id": "standard-room-2",
         "pricePerNight": 130,
         "amenities": ["Queen Bed", "Free WiFi", "Breakfast Included"],
         "cancellationPolicy": "Non-refundable",
@@ -295,8 +301,8 @@
           "2025-01-04"
         ],
         "photos": [
-          "/images/hotels/deluxeroombathroom.jpg",
-          "/images/hotels/standardroom-01.jpg"
+          "/images/hotels/hotelroom-06.jpg",
+          "/images/hotels/hotelroom-07.jpg"
         ]
       }
     ]
@@ -307,13 +313,14 @@
     "location": "London, UK",
     "ratings": 4.0,
     "photos": [
-      "/images/hotels/deluxe-01.jpg",
-      "/images/hotels/deluxe-02.jpg",
-      "/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/hotelroom-08.jpg",
+      "/images/hotels/hotelroom-09.jpg",
+      "/images/hotels/hotelroom-10.jpg"
     ],
     "rooms": [
       {
         "type": "Executive Suite",
+        "id": "executive-suite-1",
         "pricePerNight": 300,
         "amenities": [
           "King Bed",
@@ -355,12 +362,13 @@
           "2025-01-04"
         ],
         "photos": [
-          "/images/hotels/deluxeroom-04.jpg",
+          "/images/hotels/hotelroom-11.jpg",
           "/images/hotels/deluxeroom-bedside.jpg"
         ]
       },
       {
         "type": "Economy Room",
+        "id": "economy-room-1",
         "pricePerNight": 100,
         "amenities": ["Twin Bed", "Free WiFi"],
         "cancellationPolicy": "Non-refundable",
@@ -416,6 +424,7 @@
     "rooms": [
       {
         "type": "Luxury Suite",
+        "id": "luxury-suite-1",
         "pricePerNight": 400,
         "amenities": [
           "King Bed",
@@ -463,6 +472,7 @@
       },
       {
         "type": "Standard Room",
+        "id": "standard-room-3",
         "pricePerNight": 180,
         "amenities": ["Queen Bed", "Free WiFi", "Breakfast Included"],
         "cancellationPolicy": "Non-refundable",
