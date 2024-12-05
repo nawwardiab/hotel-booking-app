@@ -7,9 +7,16 @@ export default function Navbar() {
   const handleSearchClick = () => {
     navigate("/search");
   };
+
   return (
     <nav className="navbar">
-      <div className="navbar-brand">StayEasy</div>
+      <div
+        className="navbar-brand"
+        onClick={() => navigate("/")}
+        style={{ cursor: 'pointer' }}
+      >
+        StayEasy
+      </div>
       <ul className="navbar-links">
         <li>Search for</li>
         <li>View search</li>

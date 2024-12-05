@@ -33,18 +33,18 @@ const FilterOptions = () => {
         !searchParams.checkIn || !searchParams.checkOut
           ? true
           : hotel.rooms.some(
-              (room) =>
-                room.availability.includes(searchParams.checkIn) &&
-                room.availability.includes(searchParams.checkOut)
-            );
+            (room) =>
+              room.availability.includes(searchParams.checkIn) &&
+              room.availability.includes(searchParams.checkOut)
+          );
       const isAmenityMatch =
         searchParams.amenities.length === 0
           ? true
           : hotel.rooms.some((room) =>
-              searchParams.amenities.every((amenity) =>
-                room.amenities.includes(amenity)
-              )
-            );
+            searchParams.amenities.every((amenity) =>
+              room.amenities.includes(amenity)
+            )
+          );
       const isBudgetMatch = hotel.rooms.some(
         (room) =>
           room.pricePerNight >= budget[0] && room.pricePerNight <= budget[1]
@@ -134,7 +134,10 @@ const FilterOptions = () => {
         <div className="amenities-section">
           <h4>Amenities</h4>
           {availableAmenities.map((amenity) => (
-            <label key={amenity} className="amenity-checkbox">
+            <div className="filter-amenities">
+              <label key={amenity} className="amenity-checkbox">
+                {amenity}
+              </label>
               <input
                 type="checkbox"
                 checked={searchParams.amenities.includes(amenity)}
@@ -148,8 +151,7 @@ const FilterOptions = () => {
                   });
                 }}
               />
-              {amenity}
-            </label>
+            </div>
           ))}
         </div>
       </div>

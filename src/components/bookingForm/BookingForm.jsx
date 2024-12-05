@@ -80,7 +80,7 @@ const BookingForm = () => {
   };
 
   return (
-    <div className="main-content">
+    <div className="main-booking">
       <div className="form-section">
         <div className="form-card">
           <h2>Primary Guest</h2>
@@ -158,8 +158,8 @@ const BookingForm = () => {
           <div className="summary-item">
             <span className="summary-label">Check-in Date</span>
             <div className="date-picker">
-              <input 
-                type="text" 
+              <input
+                type="text"
                 value={formatDate(bookingDetails.checkIn)}
                 onClick={() => {
                   setShowCheckInCalendar(!showCheckInCalendar);
@@ -170,7 +170,7 @@ const BookingForm = () => {
               />
               {showCheckInCalendar && (
                 <div className="calendar-popup">
-                  <Calendar 
+                  <Calendar
                     onDateSelect={handleCheckInSelect}
                     selectedDate={bookingDetails.checkIn}
                   />
@@ -182,8 +182,8 @@ const BookingForm = () => {
           <div className="summary-item">
             <span className="summary-label">Check-out Date</span>
             <div className="date-picker">
-              <input 
-                type="text" 
+              <input
+                type="text"
                 value={formatDate(bookingDetails.checkOut)}
                 onClick={() => {
                   setShowCheckOutCalendar(!showCheckOutCalendar);
@@ -194,7 +194,7 @@ const BookingForm = () => {
               />
               {showCheckOutCalendar && (
                 <div className="calendar-popup">
-                  <Calendar 
+                  <Calendar
                     onDateSelect={handleCheckOutSelect}
                     selectedDate={bookingDetails.checkOut}
                   />
