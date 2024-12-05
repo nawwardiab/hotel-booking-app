@@ -210,9 +210,9 @@
     "location": "Aspen, USA",
     "ratings": 4.8,
     "photos": [
-      "/images/hotels/deluxe-01.jpg",
-      "/images/hotels/deluxe-02.jpg",
-      "/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/hotelroom-03.jpg",
+      "/images/hotels/hotelroom-04.jpg",
+      "/images/hotels/hotelroom-01.jpg"
     ],
     "rooms": [
       {
@@ -253,8 +253,8 @@
           "2025-01-04"
         ],
         "photos": [
-          "/images/hotels/deluxeroom-04.jpg",
-          "/images/hotels/deluxeroom-bedside.jpg"
+          "/images/hotels/hotelroom-02.jpg",
+          "/images/hotels/hotelroom-05.jpg"
         ]
       },
       {
@@ -295,8 +295,8 @@
           "2025-01-04"
         ],
         "photos": [
-          "/images/hotels/deluxeroombathroom.jpg",
-          "/images/hotels/standardroom-01.jpg"
+          "/images/hotels/hotelroom-06.jpg",
+          "/images/hotels/hotelroom-07.jpg"
         ]
       }
     ]
@@ -307,9 +307,9 @@
     "location": "London, UK",
     "ratings": 4.0,
     "photos": [
-      "/images/hotels/deluxe-01.jpg",
-      "/images/hotels/deluxe-02.jpg",
-      "/images/hotels/deluxeroom-03.jpg"
+      "/images/hotels/hotelroom-08.jpg",
+      "/images/hotels/hotelroom-09.jpg",
+      "/images/hotels/hotelroom-10.jpg"
     ],
     "rooms": [
       {
@@ -355,7 +355,7 @@
           "2025-01-04"
         ],
         "photos": [
-          "/images/hotels/deluxeroom-04.jpg",
+          "/images/hotels/hotelroom-11.jpg",
           "/images/hotels/deluxeroom-bedside.jpg"
         ]
       },
