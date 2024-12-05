@@ -1,35 +1,68 @@
 .search-filter {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .slider {
-    margin: 10px 0;
-  }
-  
-  .results .hotel {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .guest-selection {
-    margin: 15px 0;
-  }
-  
-  .guest-inputs {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .guest-input {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .guest-input input {
-    width: 60px;
-    padding: 5px;
-  }
-  
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.filter-amenities {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.filter-amenities input {
+  max-width: 20px;
+  margin-left: 0.5rem; /* Add space between label and checkbox */
+}
+
+.filter-section input {
+  max-width: 90%;
+  margin-left: 0.5rem; /* Add space between label and checkbox */
+}
+
+.slider {
+  margin: 10px 0;
+}
+
+.results .hotel {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.guest-selection {
+  margin: 15px 0;
+}
+
+.guest-inputs {
+  display: flex;
+  gap: 20px;
+}
+
+.guest-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.guest-input input {
+  width: 60px;
+  padding: 5px;
+}
+
+.amenities-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2px;
+}
+
+.amenities-section {
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.amenity-checkbox {
+  cursor: pointer;
+}

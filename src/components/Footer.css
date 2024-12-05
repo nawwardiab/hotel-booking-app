@@ -12,8 +12,20 @@
 
 .footer-right {
   display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
+  justify-content: end;
+  gap: 1.5rem;
+}
+
+.footer-right p {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.footer-right p:hover {
+  background: linear-gradient(45deg, #bdd8f8, #60a5fa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* For responsive design */

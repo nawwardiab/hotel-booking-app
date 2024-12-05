@@ -11,7 +11,7 @@ const RoomListings = () => {
     <div className="rooms-grid">
       {filteredHotels.map((hotel) =>
         hotel.rooms.map((room) => (
-          <RoomCard 
+          <RoomCard
             key={`${hotel.id}-${room.id}`}
             room={room}
             hotel={hotel}
