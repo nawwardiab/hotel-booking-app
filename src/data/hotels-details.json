@@ -12,6 +12,7 @@
     "rooms": [
       {
         "type": "Deluxe Suite",
+        "id": "deluxe-suite-1",
         "pricePerNight": 250,
         "amenities": [
           "King Bed",
@@ -60,6 +61,7 @@
       },
       {
         "type": "Standard Room",
+        "id": "standard-room-1",
         "pricePerNight": 150,
         "amenities": ["Queen Bed", "Free WiFi", "Breakfast Included"],
         "cancellationPolicy": "Free cancellation up to 48 hours before check-in",
@@ -115,6 +117,7 @@
     "rooms": [
       {
         "type": "Ocean View Room",
+        "id": "ocean-view-1",
         "pricePerNight": 220,
         "amenities": ["Queen Bed", "Ocean View", "Balcony", "Free WiFi"],
         "cancellationPolicy": "Non-refundable",
@@ -157,6 +160,7 @@
       },
       {
         "type": "Family Suite",
+        "id": "family-suite-1",
         "pricePerNight": 350,
         "amenities": [
           "Two Queen Beds",
@@ -217,6 +221,7 @@
     "rooms": [
       {
         "type": "Cabin Suite",
+        "id": "cabin-suite-1",
         "pricePerNight": 280,
         "amenities": ["King Bed", "Fireplace", "Mountain View", "Hot Tub"],
         "cancellationPolicy": "Free cancellation up to 48 hours before check-in",
@@ -259,6 +264,7 @@
       },
       {
         "type": "Standard Room",
+        "id": "standard-room-2",
         "pricePerNight": 130,
         "amenities": ["Queen Bed", "Free WiFi", "Breakfast Included"],
         "cancellationPolicy": "Non-refundable",
@@ -314,6 +320,7 @@
     "rooms": [
       {
         "type": "Executive Suite",
+        "id": "executive-suite-1",
         "pricePerNight": 300,
         "amenities": [
           "King Bed",
@@ -361,6 +368,7 @@
       },
       {
         "type": "Economy Room",
+        "id": "economy-room-1",
         "pricePerNight": 100,
         "amenities": ["Twin Bed", "Free WiFi"],
         "cancellationPolicy": "Non-refundable",
@@ -416,6 +424,7 @@
     "rooms": [
       {
         "type": "Luxury Suite",
+        "id": "luxury-suite-1",
         "pricePerNight": 400,
         "amenities": [
           "King Bed",
@@ -463,6 +472,7 @@
       },
       {
         "type": "Standard Room",
+        "id": "standard-room-3",
         "pricePerNight": 180,
         "amenities": ["Queen Bed", "Free WiFi", "Breakfast Included"],
         "cancellationPolicy": "Non-refundable",
