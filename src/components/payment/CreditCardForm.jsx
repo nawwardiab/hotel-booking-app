@@ -1,9 +1,15 @@
-import React, { useState, useContext } from 'react';
-import ReactCardFlip from 'react-card-flip';
-import { BookingContext } from '../../context/BookingContext';
-import { useNavigate } from 'react-router-dom';
-import { FaLock, FaShieldAlt, FaCreditCard, FaCheckCircle } from 'react-icons/fa';
-import './CreditCardForm.css';
+import React, { useState, useContext } from "react";
+import ReactCardFlip from "react-card-flip";
+import { BookingContext } from "../../context/BookingContext";
+import { useNavigate } from "react-router-dom";
+import {
+  FaLock,
+  FaShieldAlt,
+  FaCreditCard,
+  FaCheckCircle,
+} from "react-icons/fa";
+import "./CreditCardForm.css";
+import BookingSummary from "./BookingSummary";
 
 const CreditCardForm = () => {
   const { bookingDetails } = useContext(BookingContext);
@@ -11,10 +17,10 @@ const CreditCardForm = () => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [cardData, setCardData] = useState({
-    number: '',
-    name: '',
-    expiry: '',
-    cvc: '',
+    number: "",
+    name: "",
+    expiry: "",
+    cvc: "",
   });
 
   const handleInputChange = (e) => {
@@ -22,23 +28,25 @@ const CreditCardForm = () => {
     let formattedValue = value;
 
     // Format card number with spaces
-    if (name === 'number') {
-      formattedValue = value.replace(/\s/g, '').match(/.{1,4}/g)?.join(' ') || '';
+    if (name === "number") {
+      formattedValue =
+        value
+          .replace(/\s/g, "")
+          .match(/.{1,4}/g)
+          ?.join(" ") || "";
     }
     // Format expiry date with slash
-    if (name === 'expiry') {
-      formattedValue = value
-        .replace(/\D/g, '')
-        .replace(/(\d{2})(\d)/, '$1/$2');
+    if (name === "expiry") {
+      formattedValue = value.replace(/\D/g, "").replace(/(\d{2})(\d)/, "$1/$2");
     }
 
-    setCardData(prev => ({ ...prev, [name]: formattedValue }));
+    setCardData((prev) => ({ ...prev, [name]: formattedValue }));
   };
 
   const validateForm = () => {
     const { number, name, expiry, cvc } = cardData;
     return (
-      number.replace(/\s/g, '').length === 16 &&
+      number.replace(/\s/g, "").length === 16 &&
       name.length > 2 &&
       expiry.length === 5 &&
       cvc.length === 3
@@ -48,7 +56,7 @@ const CreditCardForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) {
-      alert('Please fill in all fields correctly');
+      alert("Please fill in all fields correctly");
       return;
     }
 
@@ -56,34 +64,34 @@ const CreditCardForm = () => {
 
     try {
       // Simulate payment processing
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
       // Generate booking ID
-      const bookingId = 'BOK' + Date.now();
+      const bookingId = "BOK" + Date.now();
 
       // Navigate to confirmation with booking details
-      navigate('/confirmation', { 
-        state: { 
+      navigate("/confirmation", {
+        state: {
           bookingDetails: {
             ...bookingDetails,
             bookingId,
-            paymentStatus: 'completed',
+            paymentStatus: "completed",
             paymentDate: new Date().toISOString(),
-            lastFourDigits: cardData.number.slice(-4)
-          }
-        }
+            lastFourDigits: cardData.number.slice(-4),
+          },
+        },
       });
     } catch (error) {
-      console.error('Payment failed:', error);
-      alert('Payment failed. Please try again.');
+      console.error("Payment failed:", error);
+      alert("Payment failed. Please try again.");
     } finally {
       setIsProcessing(false);
     }
   };
 
   return (
-    <div className="payment-container">
-      <div className="booking-summary">
+    <div className="credit-container">
+      {/* <div className="booking-summary">
         <h2>Booking Summary</h2>
         <div className="summary-details">
           <p><strong>Hotel:</strong> {bookingDetails?.hotelName}</p>
@@ -96,7 +104,8 @@ const CreditCardForm = () => {
             <h3><strong>Total:</strong> ${(bookingDetails?.roomTotal * 1.1).toFixed(2)}</h3>
           </div>
         </div>
-      </div>
+      </div> */}
+      {/* <BookingSummary /> */}
 
       <div className="credit-card-form">
         <h2>Payment Details</h2>
@@ -114,14 +123,16 @@ const CreditCardForm = () => {
 
         <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
           <div className="card-front">
-            <div className="card-number">{cardData.number || '•••• •••• •••• ••••'}</div>
-            <div className="card-name">{cardData.name || 'FULL NAME'}</div>
-            <div className="card-expiry">{cardData.expiry || 'MM/YY'}</div>
+            <div className="card-number">
+              {cardData.number || "•••• •••• •••• ••••"}
+            </div>
+            <div className="card-name">{cardData.name || "FULL NAME"}</div>
+            <div className="card-expiry">{cardData.expiry || "MM/YY"}</div>
           </div>
 
           <div className="card-back">
             <div className="card-stripe"></div>
-            <div className="card-cvc">{cardData.cvc || '•••'}</div>
+            <div className="card-cvc">{cardData.cvc || "•••"}</div>
           </div>
         </ReactCardFlip>
 
@@ -181,9 +192,9 @@ const CreditCardForm = () => {
             </div>
           </div>
 
-          <button 
-            type="submit" 
-            className={`pay-button ${isProcessing ? 'processing' : ''}`}
+          <button
+            type="submit"
+            className={`pay-button ${isProcessing ? "processing" : ""}`}
             disabled={isProcessing || !validateForm()}
           >
             {isProcessing ? (
@@ -196,7 +207,7 @@ const CreditCardForm = () => {
 
         <div className="payment-footer">
           <p>
-            <FaCheckCircle className="secure-icon" /> 
+            <FaCheckCircle className="secure-icon" />
             Your payment information is secure and encrypted
           </p>
         </div>
@@ -205,4 +216,4 @@ const CreditCardForm = () => {
   );
 };
 
-export default CreditCardForm; 
+export default CreditCardForm;

@@ -5,6 +5,8 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(4px);
+  height: fit-content;
+  max-width: 25%;
 }
 
 .booking-summary h2 {
@@ -22,7 +24,9 @@
   font-weight: 600;
   letter-spacing: 0.5px;
 }
-
+.booking-summary p {
+  color: #777;
+}
 .summary-content {
   display: flex;
   flex-direction: column;
@@ -77,4 +81,4 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
-} 
+}
