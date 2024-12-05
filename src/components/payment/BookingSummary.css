@@ -1,5 +1,6 @@
 .booking-summary {
-  background: white;
+  background-color: #2d2e32;
+
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -7,10 +8,12 @@
 
 .booking-summary h2 {
   margin-bottom: 20px;
-  color: #333;
+  color: #777;
   font-size: 1.5rem;
 }
-
+.booking-summary p {
+  color: #777;
+}
 .summary-content {
   display: flex;
   flex-direction: column;
@@ -49,4 +52,4 @@
 
 .summary-total span:last-child {
   color: #007bff;
-} 
+}
