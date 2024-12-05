@@ -3,20 +3,12 @@ import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 
 const styles = StyleSheet.create({
   page: {
-    flexDirection: 'column',
-    backgroundColor: '#FFFFFF',
     padding: 30,
   },
   header: {
-    marginBottom: 20,
-    borderBottom: 1,
-    borderBottomColor: '#007bff',
-    paddingBottom: 10,
-  },
-  title: {
     fontSize: 24,
+    marginBottom: 20,
     textAlign: 'center',
-    color: '#007bff',
   },
   section: {
     margin: 10,
@@ -24,64 +16,73 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
-    marginBottom: 5,
+    marginBottom: 10,
   },
   label: {
-    width: 150,
+    width: 120,
     fontWeight: 'bold',
   },
   value: {
     flex: 1,
   },
-  footer: {
-    position: 'absolute',
-    bottom: 30,
-    left: 30,
-    right: 30,
-    textAlign: 'center',
-    color: '#666',
-  },
 });
 
-const BookingPDF = ({ bookingDetails }) => (
-  <Document>
-    <Page size="A4" style={styles.page}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Booking Confirmation</Text>
-      </View>
+const BookingPDF = ({ bookingDetails }) => {
+  // Format dates to strings
+  const checkInDate = bookingDetails?.checkIn instanceof Date 
+    ? bookingDetails.checkIn.toLocaleDateString()
+    : 'N/A';
+    
+  const checkOutDate = bookingDetails?.checkOut instanceof Date
+    ? bookingDetails.checkOut.toLocaleDateString()
+    : 'N/A';
 
-      <View style={styles.section}>
-        <View style={styles.row}>
-          <Text style={styles.label}>Booking ID:</Text>
-          <Text style={styles.value}>{bookingDetails?.bookingId}</Text>
-        </View>
-        <View style={styles.row}>
-          <Text style={styles.label}>Guest Name:</Text>
-          <Text style={styles.value}>{bookingDetails?.fullName}</Text>
-        </View>
-        <View style={styles.row}>
-          <Text style={styles.label}>Hotel:</Text>
-          <Text style={styles.value}>{bookingDetails?.hotelName}</Text>
-        </View>
-        <View style={styles.row}>
-          <Text style={styles.label}>Check-in:</Text>
-          <Text style={styles.value}>{bookingDetails?.checkIn}</Text>
-        </View>
-        <View style={styles.row}>
-          <Text style={styles.label}>Check-out:</Text>
-          <Text style={styles.value}>{bookingDetails?.checkOut}</Text>
-        </View>
-        <View style={styles.row}>
-          <Text style={styles.label}>Total Amount:</Text>
-          <Text style={styles.value}>€{bookingDetails?.total}</Text>
-        </View>
-      </View>
+  return (
+    <Document>
+      <Page size="A4" style={styles.page}>
+        <Text style={styles.header}>Booking Confirmation</Text>
+        
+        <View style={styles.section}>
+          <Text style={{ fontSize: 14, marginBottom: 10 }}>
+            Booking ID: {bookingDetails?.bookingId || 'N/A'}
+          </Text>
 
-      <View style={styles.footer}>
-        <Text>Thank you for choosing our service</Text>
-      </View>
-    </Page>
-  </Document>
-);
+          <View style={styles.row}>
+            <Text style={styles.label}>Hotel:</Text>
+            <Text style={styles.value}>{bookingDetails?.hotelName || 'N/A'}</Text>
+          </View>
+
+          <View style={styles.row}>
+            <Text style={styles.label}>Room Type:</Text>
+            <Text style={styles.value}>{bookingDetails?.roomType || 'N/A'}</Text>
+          </View>
+
+          <View style={styles.row}>
+            <Text style={styles.label}>Check-in:</Text>
+            <Text style={styles.value}>{checkInDate}</Text>
+          </View>
+
+          <View style={styles.row}>
+            <Text style={styles.label}>Check-out:</Text>
+            <Text style={styles.value}>{checkOutDate}</Text>
+          </View>
+
+          <View style={styles.row}>
+            <Text style={styles.label}>Total Amount:</Text>
+            <Text style={styles.value}>
+              ${((bookingDetails?.roomTotal || 0) * 1.1).toFixed(2)}
+            </Text>
+          </View>
+        </View>
+
+        <View style={styles.section}>
+          <Text style={{ fontSize: 10, color: '#666', textAlign: 'center' }}>
+            Thank you for choosing our service!
+          </Text>
+        </View>
+      </Page>
+    </Document>
+  );
+};
 
 export default BookingPDF; 
