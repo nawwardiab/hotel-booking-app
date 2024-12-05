@@ -70,6 +70,14 @@
   border-color: #4f46e5;
 }
 
+.destination-card img,
+.hotel-card img {
+  object-fit: cover;
+  border-radius: 6px;
+  width: 250px;
+  height: 250px;
+}
+
 .hotel-card {
   position: relative;
   overflow: hidden;
